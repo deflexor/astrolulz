@@ -60,7 +60,7 @@ npm run content:coverage -- --source fixtures
 Copy `.env.example` → `.env.local`. Everything is optional for local development (defaults to the fixture bank):
 
 - `AI_PROVIDER_API_KEY`, `AI_PROVIDER_MODEL`, optional `AI_PROVIDER_BASE_URL` — batch generation only; never used by `/api/horoscope`.
-- `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY` — the service-role key is **server-only** and must never reach the browser bundle.
+- `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` (Supabase's current name for the legacy anon key; optional — current server code doesn't read it), `SUPABASE_SERVICE_ROLE_KEY` — the service-role key is required for the Supabase repository and is **server-only**; it must never reach the browser bundle.
 - `CONTENT_SOURCE` — `fixtures` (default without Supabase config) or `supabase`.
 
 ## Supabase setup

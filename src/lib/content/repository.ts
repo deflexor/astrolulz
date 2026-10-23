@@ -172,6 +172,11 @@ function createLazyClient(resolveUrl: () => string, resolveKey: () => string) {
 
 export type ContentSource = 'fixtures' | 'supabase';
 
+// Supabase env names: only NEXT_PUBLIC_SUPABASE_URL and the server-only
+// SUPABASE_SERVICE_ROLE_KEY are read here. The public key (new name
+// NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY, formerly NEXT_PUBLIC_SUPABASE_ANON_KEY)
+// is intentionally unused: all content is served through this app's API, never
+// straight from the browser, so RLS can stay closed to anonymous clients.
 export function resolveContentSource(env: NodeJS.ProcessEnv = process.env): ContentSource {
   const explicit = env.CONTENT_SOURCE;
   if (explicit === 'fixtures' || explicit === 'supabase') return explicit;
