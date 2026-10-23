@@ -1,0 +1,169 @@
+{
+  "metadata": {
+    "title": "AstralCanvas — AI horoscopes",
+    "description": "Daily and weekly horoscopes assembled from pre-generated AI content, in a stylized celestial experience. For entertainment and self-reflection."
+  },
+  "nav": {
+    "home": "Horoscope",
+    "explorer": "Zodiac explorer",
+    "about": "About & disclaimer",
+    "skipToContent": "Skip to content"
+  },
+  "localeSwitcher": {
+    "label": "Language",
+    "current": "Current language: {label}"
+  },
+  "home": {
+    "title": "Your sky, redrawn daily",
+    "intro": "Pick a sign, a period, and an optional focus — AstralCanvas assembles a horoscope in seconds from a library of pre-generated AI content. No waiting for a model to write live.",
+    "form": {
+      "signLabel": "Zodiac sign",
+      "periodLabel": "Period",
+      "themeLabel": "Focus (optional)",
+      "submit": "Get horoscope",
+      "loading": "Assembling your horoscope…",
+      "showAnother": "Show another",
+      "signSelected": "Selected sign: {name}"
+    },
+    "explorerTeaser": {
+      "title": "Explore the zodiac wheel",
+      "text": "Visit the interactive zodiac explorer (in development).",
+      "cta": "Open zodiac explorer"
+    }
+  },
+  "result": {
+    "assembledAt": "Assembled {date}",
+    "aiBadge": "AI-generated",
+    "reflectionLabel": "Reflection prompt",
+    "copy": "Copy",
+    "copied": "Copied to clipboard",
+    "copyFailed": "Couldn't access the clipboard.",
+    "manualCopy": "Select the text below and copy it manually (Ctrl+C):",
+    "repeatedNotice": "You've seen the available combinations for this selection — showing a repeat. Try another theme or period for fresh material.",
+    "unavailableTitle": "Not yet available",
+    "unavailableText": "There isn't enough approved content for this sign, period, and language yet. Please try a different theme or check back soon."
+  },
+  "sections": {
+    "overview": "Overview",
+    "focus": "Today's focus",
+    "relationships": "Relationships",
+    "work": "Work & projects",
+    "growth": "Personal growth",
+    "closing": "Closing note"
+  },
+  "periods": {
+    "daily": "Daily",
+    "weekly": "Weekly"
+  },
+  "themes": {
+    "general": "General",
+    "relationships": "Relationships",
+    "work": "Work",
+    "growth": "Personal growth"
+  },
+  "zodiac": {
+    "aries": {
+      "name": "Aries",
+      "description": "First sign of the zodiac; associated with initiative and momentum."
+    },
+    "taurus": {
+      "name": "Taurus",
+      "description": "An earth sign associated with steadiness and appreciation of comfort."
+    },
+    "gemini": {
+      "name": "Gemini",
+      "description": "An air sign associated with curiosity and quick exchanges."
+    },
+    "cancer": {
+      "name": "Cancer",
+      "description": "A water sign associated with care, memory, and home."
+    },
+    "leo": {
+      "name": "Leo",
+      "description": "A fire sign associated with warmth and creative confidence."
+    },
+    "virgo": {
+      "name": "Virgo",
+      "description": "An earth sign associated with attention to detail and craft."
+    },
+    "libra": {
+      "name": "Libra",
+      "description": "An air sign associated with balance and consideration."
+    },
+    "scorpio": {
+      "name": "Scorpio",
+      "description": "A water sign associated with depth and quiet determination."
+    },
+    "sagittarius": {
+      "name": "Sagittarius",
+      "description": "A fire sign associated with exploration and the bigger picture."
+    },
+    "capricorn": {
+      "name": "Capricorn",
+      "description": "An earth sign associated with patience and long games."
+    },
+    "aquarius": {
+      "name": "Aquarius",
+      "description": "An air sign associated with originality and community."
+    },
+    "pisces": {
+      "name": "Pisces",
+      "description": "A water sign associated with imagination and empathy."
+    }
+  },
+  "notice": {
+    "title": "AI-generated content",
+    "text": "All horoscopes on AstralCanvas are AI-generated and assembled from pre-generated AI-written content. They are intended for entertainment and self-reflection only, not as factual predictions or professional advice. Astrology is not scientifically established as a reliable way to predict individual events.",
+    "short": "AI-generated · assembled from pre-written AI content · for entertainment"
+  },
+  "errors": {
+    "invalid_request": "That request wasn't valid. Please check your selection and try again.",
+    "rate_limited": "Too many requests in a short time — please wait a moment and try again.",
+    "content_unavailable": "No approved content is available for this combination yet. Try a different focus or period.",
+    "database_unavailable": "The content service is temporarily unavailable. Please try again shortly.",
+    "unexpected_error": "Something went wrong on our side. Please try again.",
+    "network": "Couldn't reach the server. Check your connection and try again.",
+    "retry": "Try again"
+  },
+  "explorer": {
+    "title": "Zodiac explorer",
+    "lead": "An interactive, stylized zodiac wheel with shader-driven planets is planned for the next milestone. Planet positions in the scene will be decorative, not astronomically exact.",
+    "status": "In development",
+    "back": "Back to horoscopes"
+  },
+  "about": {
+    "title": "About AstralCanvas",
+    "lead": "AstralCanvas is a multilingual astrology-themed web app. This page explains exactly what its horoscopes are — and are not.",
+    "how": {
+      "heading": "How the horoscopes are made",
+      "body": "Every horoscope text was written with AI in advance, in separate batch runs. An algorithm assembles each reading from this stored library of AI-generated components — no AI model is called when you request a horoscope."
+    },
+    "entertainment": {
+      "heading": "Entertainment, not advice",
+      "body": "Horoscopes are intended for entertainment and self-reflection. They are not factual predictions and not professional advice of any kind — medical, legal, financial, or otherwise."
+    },
+    "science": {
+      "heading": "On astrology and science",
+      "body": "Astrology is not scientifically established as a reliable method for predicting individual events. Nothing on this site should be read as a claim of predictive power."
+    },
+    "limits": {
+      "heading": "Known limitations of AI content",
+      "body": "AI-generated text can be generic, repetitive, imprecise, or culturally awkward. We run automated checks and reviews, but imperfections remain possible."
+    },
+    "planets": {
+      "heading": "About the celestial visuals",
+      "body": "Planets and the zodiac wheel in the app are stylized decorations and are not necessarily astronomically accurate positions for any date or place."
+    },
+    "privacy": {
+      "heading": "Privacy",
+      "body": "No account is required, no birth details are collected, and no personal reading history is stored on our servers. Recently seen horoscope identifiers are kept only in your browser's local storage to avoid repeats."
+    }
+  },
+  "footer": {
+    "projectInfo": "AstralCanvas — a portfolio project. Horoscopes are AI-generated entertainment.",
+    "language": "Language"
+  },
+  "common": {
+    "back": "Back"
+  }
+}

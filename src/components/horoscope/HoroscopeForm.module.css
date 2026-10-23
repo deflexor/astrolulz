@@ -1,0 +1,144 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.group {
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.signGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+  gap: 0.5rem;
+}
+
+.signButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.6rem 0.4rem;
+  background: transparent;
+  color: var(--ink-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.signButton:hover {
+  color: var(--ink);
+  background: var(--bg-hover);
+}
+
+.signButtonActive,
+.signButtonActive:hover {
+  color: var(--ink);
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.signSymbol {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.signName {
+  font-size: 0.78rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.segmented button {
+  padding: 0.45rem 0.9rem;
+  background: transparent;
+  color: var(--ink-muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.segmented button:hover {
+  color: var(--ink);
+  background: var(--bg-hover);
+}
+
+.segmented .segmentActive,
+.segmented .segmentActive:hover {
+  color: var(--ink);
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  padding: 0.7rem 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), #5a8bf6);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(139, 124, 246, 0.35);
+}
+
+.primaryButton:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.secondaryButton {
+  padding: 0.7rem 1.6rem;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.secondaryButton:hover {
+  background: var(--bg-hover);
+}
+
+.loading {
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .form {
+    padding: 1rem;
+  }
+
+  .signGrid {
+    grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  }
+}
