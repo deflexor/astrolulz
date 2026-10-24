@@ -20,3 +20,6 @@ Thumbs.db
 
 # Local content-generation artifacts (review before committing batches)
 /content-out/
+scratch/
+content-out/
+content-export/

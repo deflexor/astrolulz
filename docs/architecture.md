@@ -8,7 +8,7 @@ Three strictly separated workflows (spec §7.1):
 
 2. **Serving (request time)** — `POST /api/horoscope` validates input (Zod), applies a soft rate limit, loads an eligible pool via a repository, and calls the pure composition engine. No AI SDK is imported anywhere on this path.
 
-3. **Rendering** — static pages per locale (`/en`, `/ru`, `/en/about`, …) plus one client-side form; the browser only ever talks to `/api/horoscope`.
+3. **Rendering** — static pages per locale (`/en`, `/ru`, `/en/about`, …) plus client-side islands: the horoscope form and the browser-only zodiac scene (`src/lib/explorer/`, dynamically imported so three.js never runs during SSR and stays out of the initial bundle — see `docs/shaders.md`). The browser only ever talks to `/api/horoscope`; it never talks to Supabase or the AI provider directly.
 
 ## The composition engine (`src/lib/content/composeHoroscope.ts`)
 
@@ -61,5 +61,5 @@ See `supabase/migrations/0001_init.sql`: `supported_locales`, `zodiac_sign_trans
 
 ## What is deliberately not here yet
 
-- The Three.js/GLSL zodiac scene (Milestone 5) — `/[locale]/explorer` is an honest placeholder.
 - Server-side composition metrics writes (`composition_metrics_daily` exists; the API does not write per-request rows — a deliberate free-tier-friendly default per spec §7.7).
+- Deployment: the Vercel project and production environment variables are owner actions (README → “Deploying to Vercel”); DB-backed serving smoke against Supabase REST is pending the dashboard-issued service-role key.

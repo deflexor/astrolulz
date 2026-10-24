@@ -1,0 +1,317 @@
+/* Zodiac explorer layout (spec §14: on mobile the scene must not swallow the
+   whole screen — capped height, reading content stays reachable). */
+
+.explorer {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(280px, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 880px) {
+  .explorer {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mainColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.canvasWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  max-height: 56vh;
+  min-height: 280px;
+  background:
+    radial-gradient(800px 400px at 70% -20%, rgba(139, 124, 246, 0.12), transparent 60%),
+    var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+@media (max-width: 880px) {
+  .canvasWrap {
+    max-height: 48vh;
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 1rem;
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+.overlayWide {
+  background: var(--bg-elevated);
+}
+
+.decorativeNote {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+/* --- controls ------------------------------------------------------------ */
+
+.controls {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background: var(--bg-elevated);
+}
+
+.controlRow {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.controlButton {
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+}
+
+.controlButton:hover {
+  border-color: var(--accent);
+}
+
+.checkboxLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+
+.checkboxLabel input {
+  accent-color: var(--accent);
+}
+
+.reducedNote {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.sliderLabel {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
+
+.sliderLabel input[type='range'] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.qualityRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.qualityRow button {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--ink-muted);
+  border-radius: var(--radius-sm);
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+}
+
+.qualityRow .segmentActive {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.qualityLabel {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  margin-inline-end: 0.35rem;
+}
+
+/* --- performance panel ---------------------------------------------------- */
+
+.perfBlock {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+}
+
+.perfToggle {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--ink-muted);
+  text-align: left;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.perfToggle:hover {
+  color: var(--ink);
+}
+
+.perfPanel {
+  padding: 0.25rem 1rem 0.9rem;
+}
+
+.perfNote {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+.perfGrid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.25rem 1.25rem;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.perfGrid dt {
+  color: var(--ink-muted);
+}
+
+.perfGrid dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- side column: sign list + info --------------------------------------- */
+
+.sideColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.signBlock {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  background: var(--bg-elevated);
+}
+
+.selectionHint {
+  margin: 0 0 0.6rem;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.signGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+  gap: 0.4rem;
+}
+
+.signButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.45rem 0.3rem;
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.signButton:hover {
+  border-color: var(--accent);
+}
+
+.signButtonActive {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.signSymbol {
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.signName {
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+}
+
+.signButtonActive .signName {
+  color: var(--ink);
+}
+
+/* --- info panel ------------------------------------------------------------ */
+
+.infoPanel {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  background: var(--bg-elevated);
+}
+
+.infoTitle {
+  margin: 0 0 0.4rem;
+  font-size: 1.15rem;
+}
+
+.infoDescription {
+  margin: 0 0 0.75rem;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+}
+
+.infoFacts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2rem 0.9rem;
+  margin: 0 0 0.9rem;
+  font-size: 0.88rem;
+}
+
+.infoFacts dt {
+  color: var(--ink-muted);
+}
+
+.infoFacts dd {
+  margin: 0;
+}
+
+.horoscopeLink {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.horoscopeLink:hover {
+  text-decoration: underline;
+}

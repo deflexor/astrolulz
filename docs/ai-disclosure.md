@@ -1,6 +1,8 @@
 # AI disclosure
 
-Every user-facing surface that shows horoscope text also discloses what it is. This page records the canonical wording and where it appears. Disclosure version: **v1** (`DISCLAIMER_VERSION` in `src/lib/content/types.ts`, returned in every API result).
+The full visible disclosure lives in one place — the About / disclaimer page — plus two always-on metadata surfaces: copied/share text and the API response. This page records the canonical wording and where it appears. Disclosure version: **v1** (`DISCLAIMER_VERSION` in `src/lib/content/types.ts`, returned in every API result).
+
+> **Owner decision (2026-10-24):** the repeated notice panes next to the form/result and the footer short-form line were removed as clutter; the About page (linked from the footer and navigation) carries the full explanation. The disclosure remains part of copied text and API metadata, so horoscope text never circulates without its label.
 
 ## Canonical wording
 
@@ -12,18 +14,14 @@ Every user-facing surface that shows horoscope text also discloses what it is. T
 
 > **Контент, созданный ИИ:** Все гороскопы на AstralCanvas созданы ИИ заранее и собраны из предварительно написанного ИИ-контента. Они предназначены только для развлечения и саморефлексии, а не для фактических предсказаний или профессиональных консультаций. Астрология не признана наукой как надёжный способ предсказывать события в жизни человека.
 
-Short form (footer, result badge): "AI-generated · assembled from pre-written AI content · for entertainment" / «Создано ИИ · собрано из заранее написанного ИИ-контента · для развлечения».
-
 ## Placement
 
-| Surface                                    | Implementation                                                                                                 |
-| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
-| Home page, above the controls (persistent) | `AIContentNotice` in `src/app/[locale]/page.tsx`                                                               |
-| Every horoscope result (below the text)    | `AIContentNotice` inside `HoroscopeResultView`                                                                 |
-| Copy/share text                            | `buildShareText` always appends the full localized notice (`src/lib/content/shareText.ts`, tested)             |
-| API metadata                               | `generatedByAI: true`, `generationMode: "pre-generated-composition"`, `disclaimerVersion`                      |
-| Footer                                     | short form via `SiteFooter`                                                                                    |
-| Dedicated page (no horoscope required)     | `/[locale]/about` — how it's made, entertainment-not-advice, science, limitations, decorative visuals, privacy |
+| Surface                                | Implementation                                                                                                                        |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Dedicated page (single visible notice) | `/[locale]/about` — `AIContentNotice` plus how it's made, entertainment-not-advice, science, limitations, decorative visuals, privacy |
+| Copy/share text                        | `buildShareText` always appends the full localized notice (`src/lib/content/shareText.ts`, tested)                                    |
+| API metadata                           | `generatedByAI: true`, `generationMode: "pre-generated-composition"`, `disclaimerVersion`                                             |
+| Repository README                      | AI disclosure paragraph at the top                                                                                                    |
 
 ## Rules
 

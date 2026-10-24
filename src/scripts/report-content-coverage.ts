@@ -4,6 +4,7 @@ import { buildCoverageReport, VARIETY_TARGET_PER_SCOPE } from '@/lib/content/cov
 import { contentBlockSchema, type ContentBlock } from '@/lib/content/contentSchema';
 import { resolveContentSource } from '@/lib/content/repository';
 import { parseArgs, readJsonlFile } from './lib/cli';
+import { fetchContentBlocksDb, resolveSupabaseDbUrl } from './lib/supabaseDb';
 
 /**
  * Content-bank health report (spec FR-13, §7.5).
@@ -26,27 +27,28 @@ async function main(): Promise<void> {
   if (source === 'supabase') {
     const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    const dbUrl = resolveSupabaseDbUrl(process.env);
     if (!url || !key) {
-      console.error(
-        '--source supabase requires NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.',
-      );
-      process.exit(1);
+      if (!dbUrl) {
+        console.error(
+          '--source supabase requires NEXT_PUBLIC_SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY, ' +
+            'or a direct connection string in SUPABASE_DB_URL / NEXT_PUBLIC_SUPABASE_CONNSTR.',
+        );
+        process.exit(1);
+      }
+      blocks = await loadBlocksFromDb(dbUrl);
+    } else {
+      const { createClient } = await import('@supabase/supabase-js');
+      const client = createClient(url, key, {
+        auth: { persistSession: false, autoRefreshToken: false },
+      });
+      const { data, error } = await client.from('content_blocks').select('*').limit(50_000);
+      if (error) {
+        console.error(`Supabase read failed: ${error.message}`);
+        process.exit(1);
+      }
+      blocks = parseRows(data ?? []);
     }
-    const { createClient } = await import('@supabase/supabase-js');
-    const client = createClient(url, key, {
-      auth: { persistSession: false, autoRefreshToken: false },
-    });
-    const { data, error } = await client.from('content_blocks').select('*').limit(50_000);
-    if (error) {
-      console.error(`Supabase read failed: ${error.message}`);
-      process.exit(1);
-    }
-    blocks = (data ?? []).map((row) => {
-      const parsed = contentBlockSchema.safeParse(fromRow(row));
-      if (!parsed.success)
-        throw new Error(`Invalid row ${String(row.id)}: ${parsed.error.issues[0]?.message}`);
-      return parsed.data;
-    });
   } else {
     const dir = path.join(process.cwd(), 'fixtures', 'content');
     blocks = fs
@@ -103,6 +105,20 @@ async function main(): Promise<void> {
     console.log(
       `\nNote: ${report.summary.belowTargetScopes} scope(s) below the ${VARIETY_TARGET_PER_SCOPE}-combination target.`,
     );
+}
+
+async function loadBlocksFromDb(dbUrl: string): Promise<ContentBlock[]> {
+  const rows = await fetchContentBlocksDb(dbUrl);
+  return parseRows(rows);
+}
+
+function parseRows(rows: readonly Record<string, unknown>[]): ContentBlock[] {
+  return rows.map((row) => {
+    const parsed = contentBlockSchema.safeParse(fromRow(row));
+    if (!parsed.success)
+      throw new Error(`Invalid row ${String(row.id)}: ${parsed.error.issues[0]?.message}`);
+    return parsed.data;
+  });
 }
 
 function fromRow(row: Record<string, unknown>): Record<string, unknown> {

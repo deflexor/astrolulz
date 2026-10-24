@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { ZODIAC_SIGNS, type ZodiacSignId } from '@/lib/astrology/zodiacSigns';
 import {
@@ -64,6 +64,7 @@ export function HoroscopeForm() {
   const [period, setPeriod] = useState<HoroscopePeriod>('daily');
   const [theme, setTheme] = useState<HoroscopeTheme>('general');
   const [state, setState] = useState<RequestState>({ kind: 'idle' });
+  const requestSeq = useRef(0);
 
   // Restore selection from the URL once after hydration (preserved across
   // locale switches). Reading window here would break SSR markup equality,
@@ -91,6 +92,7 @@ export function HoroscopeForm() {
   }, []);
 
   const requestHoroscope = useCallback(async () => {
+    const seq = ++requestSeq.current;
     setState({ kind: 'loading' });
     try {
       const response = await fetch('/api/horoscope', {
@@ -106,6 +108,7 @@ export function HoroscopeForm() {
         }),
       });
       const data = (await response.json()) as HoroscopeApiResponse;
+      if (seq !== requestSeq.current) return; // a newer selection superseded this request
       if ('error' in data) {
         setState({ kind: 'error', code: data.error.code });
       } else {
@@ -113,9 +116,17 @@ export function HoroscopeForm() {
         setState({ kind: 'success', payload: data });
       }
     } catch {
-      setState({ kind: 'error', code: 'network' });
+      if (seq === requestSeq.current) setState({ kind: 'error', code: 'network' });
     }
   }, [locale, signId, period, theme]);
+
+  // Auto-load: the reading appears right after the page loads and refreshes
+  // whenever the selection changes (debounced, so quick clicks and the
+  // post-hydration URL restore collapse into one request).
+  useEffect(() => {
+    const timer = setTimeout(() => void requestHoroscope(), 300);
+    return () => clearTimeout(timer);
+  }, [requestHoroscope]);
 
   const busy = state.kind === 'loading';
   const selectedSign = ZODIAC_SIGNS.find((s) => s.id === signId)!;
@@ -191,14 +202,6 @@ export function HoroscopeForm() {
       </div>
 
       <div className={styles.actions}>
-        <button
-          type="button"
-          className={styles.primaryButton}
-          onClick={requestHoroscope}
-          disabled={busy}
-        >
-          {busy ? t('home.form.loading') : t('home.form.submit')}
-        </button>
         {state.kind === 'success' && (
           <button
             type="button"

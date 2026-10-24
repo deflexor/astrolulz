@@ -1,19 +1,15 @@
 import { useTranslations } from 'next-intl';
 
 /**
- * Persistent AI-generated-content disclosure (spec §1.1, FR-04).
- * Rendered near the form and inside every result; also included in copied
- * text. Works in both server and client components.
+ * AI-generated-content disclosure block (spec §1.1, FR-04).
+ *
+ * Shown on the About / disclaimer page, which is the single place the full
+ * visible disclosure lives (owner decision, 2026-10-24: no repeated notice
+ * panes elsewhere in the UI). The notice also remains part of copied/share
+ * text and the API response metadata.
  */
-export function AIContentNotice({ compact = false }: { compact?: boolean }) {
+export function AIContentNotice() {
   const t = useTranslations('notice');
-  if (compact) {
-    return (
-      <p className="ai-notice ai-notice-compact" role="note">
-        {t('short')}
-      </p>
-    );
-  }
   return (
     <aside className="ai-notice" role="note" aria-label={t('title')}>
       <strong>{t('title')}</strong>

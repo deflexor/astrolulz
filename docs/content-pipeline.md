@@ -42,12 +42,12 @@ Defined by `contentBlockSchema` (Zod) in `src/lib/content/contentSchema.ts`; mir
 ## Idempotent import
 
 - Fixtures mode: appends to `fixtures/content/<locale>.jsonl`, skipping existing ids — safe to re-run.
-- Supabase mode: upsert with `ignoreDuplicates` on `id`, chunked at 100 rows, service-role key (server-side only).
-- `--approve` flips drafts to `approved` with a `reviewedAt` timestamp. Only use it after editorial review — if no human reviewed a batch, documentation and UI must not claim one did.
+- Supabase mode: upsert with `ignoreDuplicates` on `id`, chunked, server-side only. Two transports: the REST API with `SUPABASE_SERVICE_ROLE_KEY` (primary), or a direct database connection via `SUPABASE_DB_URL` / `NEXT_PUBLIC_SUPABASE_CONNSTR` (fallback when no service-role API key is configured; also Supabase's recommended transport for bulk loads). Both are semantically identical; chunks are kept small because some TLS-inspecting networks drop large Postgres messages.
+- `--approve` flips drafts to `approved` with a `reviewedAt` timestamp. Only use it after editorial review — if no human reviewed a batch, documentation and UI must not claim one did. (The 192-block fixture bank was hand-authored and reviewed in Milestones 1–4; its 2026-10-24 import to the production Supabase project used `--approve` on that basis.)
 
 ## Variety measurement
 
-`content:coverage` enumerates tag-compatible selections per scope (capped at 20,000; capped counts are reported as conservative lower bounds, never raw Cartesian products). Current fixture bank: **192/192 scopes supported, 72 valid combinations each** — sufficient for development, below the 1,000/scope production target; grow the bank with `content:generate --variants N` per sign.
+`content:coverage` enumerates tag-compatible selections per scope (capped at 20,000; capped counts are reported as conservative lower bounds, never raw Cartesian products). Fixture bank: **192/192 scopes supported, 72 valid combinations each** — sufficient for development, below the 1,000/scope production target; grow the bank with `content:generate --variants N` per sign. The same report run against the production Supabase database on 2026-10-24: **192/192 scopes supported, 0 missing, 0 duplicate hashes** (snapshot: `docs/reports/coverage-supabase-2026-10-24.json`).
 
 ## Versioning & reproducibility
 

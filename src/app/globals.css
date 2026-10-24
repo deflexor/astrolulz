@@ -170,7 +170,7 @@ a {
   gap: 1rem;
 }
 
-/* AI disclosure notice (always near horoscope content) */
+/* AI disclosure notice — shown only on the About page (docs/ai-disclosure.md) */
 
 .ai-notice {
   background: var(--amber-bg);
@@ -189,23 +189,6 @@ a {
 
 .ai-notice p {
   margin: 0;
-}
-
-.ai-notice-compact {
-  margin: 0;
-}
-
-.ai-badge {
-  display: inline-block;
-  background: var(--amber-bg);
-  border: 1px solid var(--amber-border);
-  color: var(--gold);
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 0.15rem 0.6rem;
 }
 
 /* Form controls shared look */

@@ -5,15 +5,14 @@ import { useLocale, useTranslations } from 'next-intl';
 import { buildShareText } from '@/lib/content/shareText';
 import { getZodiacSign, type ZodiacSignId } from '@/lib/astrology/zodiacSigns';
 import type { HoroscopeResult as HoroscopeResultData } from '@/lib/content/types';
-import { AIContentNotice } from './AIContentNotice';
 import styles from './HoroscopeResult.module.css';
 
 type CopyState = 'idle' | 'copied' | 'manual';
 
 /**
- * Renders an assembled horoscope: title, meta line, sections, reflection
- * prompt, and the AI disclosure. Copy/share always includes the localized
- * AI notice (spec FR-04, FR-10).
+ * Renders an assembled horoscope: title, meta line, sections, and reflection
+ * prompt. Copied/share text keeps the localized AI notice (spec FR-04,
+ * FR-10); the visible disclosure lives on the About page.
  */
 export function HoroscopeResultView({
   result,
@@ -79,8 +78,7 @@ export function HoroscopeResultView({
           <h2 className={styles.title}>{result.title}</h2>
           <p className={styles.meta}>
             {signName} · {periodLabel} · {themeLabel} ·{' '}
-            {t('result.assembledAt', { date: assembledAtLabel })}{' '}
-            <span className="ai-badge">{t('result.aiBadge')}</span>
+            {t('result.assembledAt', { date: assembledAtLabel })}
           </p>
         </div>
       </header>
@@ -129,8 +127,6 @@ export function HoroscopeResultView({
           />
         </div>
       )}
-
-      <AIContentNotice />
     </article>
   );
 }

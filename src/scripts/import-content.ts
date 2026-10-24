@@ -1,6 +1,7 @@
 import path from 'node:path';
 import { contentBlockSchema, type ContentBlock } from '@/lib/content/contentSchema';
 import { parseArgs, readJsonlFile, writeJsonlFile } from './lib/cli';
+import { resolveSupabaseDbUrl, upsertContentBlocksDb } from './lib/supabaseDb';
 
 /**
  * Imports a validated batch into the content bank (spec §7.6).
@@ -76,34 +77,49 @@ async function importIntoFixtures(blocks: ContentBlock[]): Promise<void> {
 async function importIntoSupabase(blocks: ContentBlock[]): Promise<void> {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) {
-    console.error(
-      'Supabase import requires NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY (server-side only).',
-    );
-    process.exit(1);
-  }
-  const { createClient } = await import('@supabase/supabase-js');
-  const client = createClient(url, key, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  });
-
   const rows = blocks.map(toRow);
-  let inserted = 0;
-  for (let i = 0; i < rows.length; i += 100) {
-    const chunk = rows.slice(i, i + 100);
-    const { data, error } = await client
-      .from('content_blocks')
-      .upsert(chunk, { onConflict: 'id', ignoreDuplicates: true })
-      .select('id');
-    if (error) {
-      console.error(`Supabase import failed at chunk ${i / 100 + 1}: ${error.message}`);
-      process.exit(1);
+
+  // Primary transport: Supabase REST API with the service-role key.
+  if (url && key) {
+    const { createClient } = await import('@supabase/supabase-js');
+    const client = createClient(url, key, {
+      auth: { persistSession: false, autoRefreshToken: false },
+    });
+
+    let inserted = 0;
+    for (let i = 0; i < rows.length; i += 100) {
+      const chunk = rows.slice(i, i + 100);
+      const { data, error } = await client
+        .from('content_blocks')
+        .upsert(chunk, { onConflict: 'id', ignoreDuplicates: true })
+        .select('id');
+      if (error) {
+        console.error(`Supabase import failed at chunk ${i / 100 + 1}: ${error.message}`);
+        process.exit(1);
+      }
+      inserted += data?.length ?? 0;
     }
-    inserted += data?.length ?? 0;
+    console.log(
+      `Supabase import: ${inserted} inserted, ${rows.length - inserted} skipped (existing ids).`,
+    );
+    return;
   }
-  console.log(
-    `Supabase import: ${inserted} inserted, ${rows.length - inserted} skipped (existing ids).`,
+
+  // Fallback transport: direct database connection (same upsert semantics).
+  const dbUrl = resolveSupabaseDbUrl(process.env);
+  if (dbUrl) {
+    const inserted = await upsertContentBlocksDb(dbUrl, rows);
+    console.log(
+      `Supabase import (direct db): ${inserted} inserted, ${rows.length - inserted} skipped (existing ids).`,
+    );
+    return;
+  }
+
+  console.error(
+    'Supabase import requires NEXT_PUBLIC_SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY, ' +
+      'or a direct connection string in SUPABASE_DB_URL / NEXT_PUBLIC_SUPABASE_CONNSTR.',
   );
+  process.exit(1);
 }
 
 function toRow(block: ContentBlock): Record<string, unknown> {

@@ -1,7 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { HoroscopeForm } from '@/components/horoscope/HoroscopeForm';
-import { AIContentNotice } from '@/components/horoscope/AIContentNotice';
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -14,9 +13,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <h1>{t('title')}</h1>
         <p className="hero-lead">{t('intro')}</p>
       </section>
-
-      {/* Persistent AI disclosure — always visible near the controls (spec §5.1). */}
-      <AIContentNotice />
 
       <HoroscopeForm />
 

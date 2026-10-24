@@ -39,8 +39,8 @@ type FreePool = {
   closings: Array<{ body: string; tag: string }>;
 };
 
-const CREATED_AT = '2026-10-23T00:00:00.000Z';
-const CONTENT_VERSION = 'fixture-v1';
+const CREATED_AT = '2026-10-24T00:00:00.000Z';
+const CONTENT_VERSION = 'fixture-v2';
 
 const EN_SIGNS: Record<ZodiacSignId, SignContent> = {
   aries: {
@@ -174,36 +174,177 @@ const EN_SIGNS: Record<ZodiacSignId, SignContent> = {
   },
 };
 
+/**
+ * Second narrative arc per sign (2026-10-24 variety pass): a different angle
+ * and register from arc A, so a scope offers two coherent stories instead of
+ * one. Style rules for new copy: speak about the reader's day directly, no
+ * meta references to "this reading" or the stars, concrete imagery over
+ * abstract advice.
+ */
+const EN_SIGNS_B: Record<ZodiacSignId, SignContent> = {
+  aries: {
+    titles: ['First Move, Best Move', 'Green Lights Today'],
+    overview:
+      'The early hours are the good ones — what you start before noon gets the clearest run.',
+    focus: 'Begin while it still feels exciting; momentum is your fuel, not a luxury.',
+    relationships: 'Your directness is a gift today — say the plain kind thing first.',
+    work: 'Volunteer for the opener, not the cleanup; your energy peaks early.',
+    growth: 'Count wins, not tasks. Three small ones beat a heroic maybe.',
+    excludedOpeningTags: ['calm'],
+  },
+  taurus: {
+    titles: ['Slow Ripens Best', 'The Comfortable Climb'],
+    overview:
+      'Nothing needs forcing today — steady pressure on one good thing beats a burst of three.',
+    focus: 'Settle into the task with the best chair and the fewest interruptions.',
+    relationships: 'Cook, fix, or simply sit with someone — presence outperforms presents today.',
+    work: 'Finish what is already open before opening anything new.',
+    growth: 'One small upgrade to your routine will pay rent all month.',
+    excludedOpeningTags: ['playful'],
+  },
+  gemini: {
+    titles: ['One Tab Open', 'Talk It Into Shape'],
+    overview: 'Your mind is a crowded room today — hand one conversation the floor.',
+    focus: 'Write the list by hand; the slower version sticks better.',
+    relationships: 'Call instead of texting — your voice carries the joke properly.',
+    work: 'Explain the messy idea out loud once, and it clicks for both of you.',
+    growth: 'Boredom is information: notice which task drains you and which just delays.',
+    excludedOpeningTags: [],
+  },
+  cancer: {
+    titles: ['Home Advantage', 'The Soft Hour'],
+    overview: 'The day has a soft center — protect it instead of apologizing for it.',
+    focus: 'Make your space a little kinder first, then work from there.',
+    relationships: 'Check on the person who always checks on everyone else.',
+    work: 'Guard the first hour of focus like family time — because attention is.',
+    growth:
+      'The feeling you keep postponing will keep its appointment either way. Choose the hour yourself.',
+    excludedOpeningTags: ['bold'],
+  },
+  leo: {
+    titles: ['Warm Front Moving In', 'Main Character, Good Plot'],
+    overview:
+      'You set the tone for the whole day — warm and generous. Point that light at something that matters.',
+    focus: 'Take the visible task; hiding your light is just bad lighting for everyone.',
+    relationships:
+      'Introduce two people who should know each other. Be the bridge, not the billboard.',
+    work: 'Present the rough version — your confidence sells it better than polish would.',
+    growth: 'Applause is a snack, not a meal. Know which is which tonight.',
+    excludedOpeningTags: ['calm'],
+  },
+  virgo: {
+    titles: ['The Honest Checklist', 'Edit, Not Redo'],
+    overview: "Your eye for what's off is worth money today — apply it to your own stack first.",
+    focus: 'Fifteen minutes of actual tidying beats an hour of planning.',
+    relationships: 'Do the helpful thing without the disclaimer. Let it just be kind.',
+    work: 'Fix the small broken thing everyone has been stepping over.',
+    growth: "'Good enough' ships. Perfection just attends meetings.",
+    excludedOpeningTags: ['bold'],
+  },
+  libra: {
+    titles: ['Two Doors, One You', 'Peace, Practically'],
+    overview: "The choice you're chewing on has no wrong answer — only two different good days.",
+    focus: 'Flip a coin, then notice which result you hoped for. There is your answer.',
+    relationships: 'Be the thermostat, not the thermometer — set the temperature you want.',
+    work: 'The awkward email writes itself if you start with the kind sentence.',
+    growth: 'Your own convenience counts too. Stop weighing yourself last.',
+    excludedOpeningTags: ['bold'],
+  },
+  scorpio: {
+    titles: ['Quiet Leverage', 'Depth Charges'],
+    overview: 'You see one layer deeper than usual today — spend that sight on one real thing.',
+    focus: 'One thread, pulled all the way. Ten half-pulls teach nothing.',
+    relationships: 'Ask the second question — the one after the polite answer.',
+    work: 'Do the digging nobody else wants to; it is your superpower, with a desk.',
+    growth: 'One old grudge weighs more than the whole day. Set it down.',
+    excludedOpeningTags: ['bold'],
+  },
+  sagittarius: {
+    titles: ['Zoom Out, Then Leap', 'Room to Roam'],
+    overview: 'The map is more useful than the itinerary today — look up before you sprint.',
+    focus: 'Say yes to the thing that scares you a little and bores you never.',
+    relationships: 'Take the long way back with someone; detours are where the talk happens.',
+    work: 'Pitch the big version. Trimming later is easy; expanding later is not.',
+    growth: 'Book the thing — plans love people who already hold tickets.',
+    excludedOpeningTags: ['calm'],
+  },
+  capricorn: {
+    titles: ['Brick by Brick', 'The Long Game Pays'],
+    overview: "Today rewards the unglamorous move — the one you'd never post about.",
+    focus: 'Do the hardest small thing before it grows an audience.',
+    relationships: 'Show care through logistics: the pickup, the reminder, the backup plan.',
+    work: 'Fix the process, not the symptom — ten minutes on the root cause saves the quarter.',
+    growth: 'Rest with the same seriousness you bring to deadlines.',
+    excludedOpeningTags: ['playful'],
+  },
+  aquarius: {
+    titles: ['The Odd Idea Wins', 'Signal Detected'],
+    overview: "Today's strange thought is tomorrow's obvious one — give it a fair hearing.",
+    focus: 'Change one variable in the routine and the whole day becomes visible again.',
+    relationships: 'Say the appreciative thing publicly and the difficult thing privately.',
+    work: 'Build the small tool once; it will work for you all month.',
+    growth: 'Your people are a renewable resource — spend time with the ones who get you.',
+    excludedOpeningTags: ['calm'],
+  },
+  pisces: {
+    titles: ['Drift With Intent', 'The Dream Has Legs'],
+    overview: 'The daydream is not the escape — it is the draft. Give it one concrete step.',
+    focus: 'Protect the unstructured hour; it is your production floor.',
+    relationships: 'Say the tender thing while it is still small. It grows either way.',
+    work: 'Start with the image, end with the to-do — your process runs in both directions.',
+    growth: 'Water finds a way through, and so do you. Slow counts as progress.',
+    excludedOpeningTags: ['bold'],
+  },
+};
+
 const EN_FREE: FreePool = {
   openings: [
     {
-      body: 'The stars lean close today, and the reading below was set aside just for you.',
+      body: 'A good day starts small: one honest message, one finished task, one real break.',
       tag: 'warm',
     },
+    { body: 'Skip the warm-up — today responds to people who move first.', tag: 'bold' },
+    { body: "Low drama, decent energy: handle what's actually on your plate.", tag: 'playful' },
+    { body: 'Nothing this morning is as loud as it sounds. Give it an hour.', tag: 'calm' },
     {
-      body: 'Here is your sky, cut bright and clear — read it like a friend who never hedges.',
-      tag: 'bold',
+      body: 'Feet on the floor, phone face down — the first ten minutes set the tone.',
+      tag: 'grounded',
     },
+    { body: "Spoiler: most of today's problems are yesterday's, wearing a new hat.", tag: 'wry' },
     {
-      body: 'Cosmic memo incoming: no doom, a little gloom-dispelling, one gentle dare.',
-      tag: 'playful',
+      body: 'Somebody will be glad you showed up today. Probably several somebodies.',
+      tag: 'warm',
     },
-    {
-      body: 'Settle in; this reading unfolds slowly, like evening light across water.',
-      tag: 'calm',
-    },
+    { body: "Pick the thing you keep postponing. Today it's smaller than it looks.", tag: 'bold' },
+    { body: 'One deep breath before the calendar starts making demands.', tag: 'calm' },
+    { body: 'Forecast for today: scattered wins with a chance of showing off.', tag: 'playful' },
   ],
   reflections: [
-    'What would “enough” look like today?',
-    'Which small kindness could you send without signing it?',
-    'If today had a subtitle, what would it read?',
-    'What are you carrying that was never yours to carry?',
+    'What would make tonight feel like a win, exactly?',
+    'Which promise to yourself is due for a small payment?',
+    'Who could use the easy version of you today?',
+    'If nobody kept score, what would you do differently this afternoon?',
+    "What's one thing you could put down before dinner?",
+    'Where did you feel genuinely useful this week?',
+    'What are you rehearsing that deserves a live performance?',
+    'Which conversation gets shorter every time you postpone it?',
+    "What would 'a little better' look like — not a lot, just a little?",
+    'What did you do recently that your future self will quietly thank you for?',
   ],
   closings: [
-    { body: 'However the day unfolds, you are allowed to meet it gently.', tag: 'warm' },
-    { body: 'Take the day personally — in the good way — and use it.', tag: 'bold' },
-    { body: 'The stars accept no responsibility for any spontaneous good mood.', tag: 'playful' },
-    { body: 'Nothing needs solving this evening; let the sky do the turning.', tag: 'calm' },
+    { body: 'However the day goes, end it on your own terms.', tag: 'warm' },
+    { body: "You've read enough. Go take the first swing.", tag: 'bold' },
+    { body: 'Let the evening be an evening, not a second shift.', tag: 'calm' },
+    { body: 'The universe is off duty tonight — no pressure from that direction.', tag: 'playful' },
+    { body: 'Small steady things win again today. Trust them.', tag: 'grounded' },
+    {
+      body: "If all else fails, you're still the most interesting person in the room.",
+      tag: 'wry',
+    },
+    { body: "You're doing better than your inner critic reports.", tag: 'warm' },
+    { body: 'Put the day down gently — it carried you this far.', tag: 'calm' },
+    { body: "One more honest effort, then rest. That's the whole recipe.", tag: 'bold' },
+    { body: 'Go be a delightfully complicated human out there.', tag: 'playful' },
   ],
 };
 
@@ -331,9 +472,129 @@ const RU_SIGNS: Record<ZodiacSignId, SignContent> = {
     titles: ['Мягкое течение, сильный гребок', 'Мечта на якоре'],
     overview: 'Воображение сегодня на удивление полезно: в грёзах может прятаться рабочий план.',
     focus: 'Защитите карман неструктурированного времени — именно в нём всплывают лучшие идеи.',
-    relationships: 'Эмпатия — ваша родная стихия; но и вам позволено получать поддержку.',
+    relationships: 'Эмпатия — ваша родная стихия, но и вам позволено получать поддержку.',
     work: 'Сочетайте мечтание с одним конкретным шагом: муза уважает календарь.',
-    growth: 'Запишите чувство: воду легче нести в сосуде.',
+    growth: 'Запишите чувство — воду легче нести в сосуде.',
+    excludedOpeningTags: ['bold'],
+  },
+};
+
+/** Второй сюжетный арк на знак (вариант B, 2026-10-24). */
+const RU_SIGNS_B: Record<ZodiacSignId, SignContent> = {
+  aries: {
+    titles: ['Первый ход — лучший ход', 'Зелёный свет'],
+    overview: 'Утренние часы сегодня самые удачные: то, что начато до полудня, идёт легче всего.',
+    focus: 'Начните, пока интересно: инерция — ваше топливо, а не роскошь.',
+    relationships: 'Ваша прямота сегодня — подарок: скажите кому-то простую тёплую вещь.',
+    work: 'Беритесь за старт, а не за уборку: ваша энергия сильнее всего в начале.',
+    growth: 'Считайте победы, а не задачи: три маленькие лучше одного героического «может быть».',
+    excludedOpeningTags: ['calm'],
+  },
+  taurus: {
+    titles: ['Медленное зреет лучше', 'Удобный подъём'],
+    overview:
+      'Ничего не нужно продавливать: ровное давление на одно хорошее дело сделает больше, чем рывок.',
+    focus: 'Устройтесь в задаче с самым удобным стулом и минимумом помех.',
+    relationships:
+      'Приготовьте, почините или просто посидите рядом: присутствие сегодня дороже подарков.',
+    work: 'Доведите до конца начатое, прежде чем начинать новое.',
+    growth: 'Одно маленькое улучшение распорядка окупится весь месяц.',
+    excludedOpeningTags: ['playful'],
+  },
+  gemini: {
+    titles: ['Одна вкладка открыта', 'Проговорите до ясности'],
+    overview: 'В голове сегодня людно — выберите один разговор и дайте ему слово.',
+    focus: 'Список лучше писать от руки: медленная версия держится крепче.',
+    relationships: 'Позвоните вместо сообщения: голос донесёт шутку как надо.',
+    work: 'Объясните сырую идею вслух один раз — и она сложится для вас обоих.',
+    growth:
+      'Скука — это информация: заметьте, какая задача истощает, а какая просто откладывается.',
+    excludedOpeningTags: [],
+  },
+  cancer: {
+    titles: ['Домашнее преимущество', 'Мягкий час'],
+    overview: 'У сегодняшнего дня мягкая середина — берегите её, а не извиняйтесь за неё.',
+    focus:
+      'Сначала сделайте одну вещь, которая сделает ваше пространство добрее, — и работайте оттуда.',
+    relationships: 'Напишите тому, кто обычно сам пишет всем первым.',
+    work: 'Охраняйте первый час работы как семейное время: никого не впускать, ничего не переносить.',
+    growth: 'Чувство, которое вы откладываете, всё равно придёт — лучше выбрать час самому.',
+    excludedOpeningTags: ['bold'],
+  },
+  leo: {
+    titles: ['Тёплый фронт приближается', 'Главная роль, хороший сюжет'],
+    overview:
+      'Сегодня вы задаёте тон всему дню — тёплый и щедрый. Направьте этот свет на что-то действительно важное.',
+    focus: 'Берите видимое дело: скрывать ваш свет — всё равно что портить освещение для всех.',
+    relationships:
+      'Познакомьте двух людей, которые должны знать друг друга: будьте мостом, а не рекламным щитом.',
+    work: 'Покажите черновик — уверенность продаёт его лучше полировки.',
+    growth: 'Аплодисменты — перекус, а не обед: научитесь различать.',
+    excludedOpeningTags: ['calm'],
+  },
+  virgo: {
+    titles: ['Честный чек-лист', 'Править, а не переписывать'],
+    overview: 'Ваш взгляд на несовершенства сегодня на вес золота — начните с собственной стопки.',
+    focus: 'Пятнадцать минут настоящего порядка стоят часа планирования.',
+    relationships: 'Сделайте полезное без дисклеймеров: пусть это будет просто приятно.',
+    work: 'Почините мелочь, через которую все перешагивают.',
+    growth: '«Достаточно хорошо» уже в деле. Совершенство всё ещё на согласовании.',
+    excludedOpeningTags: ['bold'],
+  },
+  libra: {
+    titles: ['Две двери, один вы', 'Практический покой'],
+    overview:
+      'У выбора, который вы обдумываете, нет неправильного ответа — только два разных хороших дня.',
+    focus: 'Подбросьте монетку и заметьте, какого результата вы ждали. Это и есть ответ.',
+    relationships: 'Будьте термостатом, а не термометром: выставляйте температуру, которую хотите.',
+    work: 'Неловкое письмо напишется само, если начать с доброго предложения.',
+    growth: 'Ваше удобство тоже считается: перестаньте взвешивать себя последним.',
+    excludedOpeningTags: ['bold'],
+  },
+  scorpio: {
+    titles: ['Тихий рычаг', 'Глубинный заряд'],
+    overview:
+      'Вы сегодня видите на слой глубже обычного — потратьте этот взгляд на одно настоящее дело.',
+    focus: 'Одна нить, вытянутая до конца. Десять наполовину вытянутых ничему не учат.',
+    relationships: 'Задайте второй вопрос — тот, что идёт после вежливого ответа.',
+    work: 'Сделайте исследование, за которое никто не хочет браться: в этом ваша сила.',
+    growth: 'Одна старая обида весит больше целого рабочего дня. Поставьте её на место.',
+    excludedOpeningTags: ['bold'],
+  },
+  sagittarius: {
+    titles: ['Сначала отдалите взгляд', 'Простор для манёвра'],
+    overview: 'Карта сегодня полезнее маршрута — поднимите глаза, прежде чем бежать.',
+    focus: 'Скажите «да» тому, что немного пугает и никогда не наскучит.',
+    relationships: 'Возвращайтесь с кем-то длинной дорогой: разговоры случаются на объездах.',
+    work: 'Предложите большую версию: урезать легко потом, расширять — трудно.',
+    growth: 'Бронируйте: план любит людей, у которых уже есть билеты.',
+    excludedOpeningTags: ['calm'],
+  },
+  capricorn: {
+    titles: ['Кирпич за кирпичом', 'Длинная игра платит'],
+    overview: 'День награждает незаметный шаг — тот, о котором не напишешь в ленте.',
+    focus: 'Сделайте самую трудную мелочь, пока у неё не появилась аудитория.',
+    relationships: 'Забота сегодня — это логистика: встретить, напомнить, подстраховать.',
+    work: 'Чините процесс, а не симптом: десять минут о первопричине экономят квартал.',
+    growth: 'Отдыхайте со всей серьёзностью, с которой встречаете дедлайны.',
+    excludedOpeningTags: ['playful'],
+  },
+  aquarius: {
+    titles: ['Странная идея побеждает', 'Сигнал пойман'],
+    overview: 'Сегодняшняя странная мысль — завтрашняя очевидная. Дайте ей честное слушание.',
+    focus: 'Поменяйте одну переменную в рутине — и день снова станет видимым.',
+    relationships: 'Признание говорите публично, претензию — наедине.',
+    work: 'Соберите маленький инструмент один раз — он будет работать на вас весь месяц.',
+    growth: 'Ваши люди — возобновляемый ресурс: проводите время с теми, кто вас понимает.',
+    excludedOpeningTags: ['calm'],
+  },
+  pisces: {
+    titles: ['Дрейфовать с намерением', 'У мечты есть ноги'],
+    overview: 'Грёза — не побег, а черновик. Дайте ей один конкретный шаг.',
+    focus: 'Берегите неструктурированный час: это ваш производственный цех.',
+    relationships: 'Скажите нежное, пока оно маленькое. Оно всё равно растёт.',
+    work: 'Начните с образа, закончите списком дел: ваш процесс работает в обе стороны.',
+    growth: 'Вода просачивается сквозь камни — и вы пробьётесь. Медленно — тоже прогресс.',
     excludedOpeningTags: ['bold'],
   },
 };
@@ -341,36 +602,60 @@ const RU_SIGNS: Record<ZodiacSignId, SignContent> = {
 const RU_FREE: FreePool = {
   openings: [
     {
-      body: 'Звёзды сегодня наклоняются ближе, а чтение ниже было отложено специально для вас.',
+      body: 'Хороший день начинается с мелочей: одно честное сообщение, одна завершённая задача, один настоящий перерыв.',
+      tag: 'warm',
+    },
+    { body: 'Без разминки: сегодня день отвечает тем, кто делает первый шаг.', tag: 'bold' },
+    { body: 'Драмы не намечается — намечаются дела. Начните с ближайшего.', tag: 'playful' },
+    { body: 'Ничто этим утром не настолько громкое, как звучит. Дайте ему час.', tag: 'calm' },
+    {
+      body: 'Ноги на пол, телефон экраном вниз: первые десять минут задают тон дню.',
+      tag: 'grounded',
+    },
+    {
+      body: 'Спойлер: большинство сегодняшних проблем — вчерашние, просто в новой шляпе.',
+      tag: 'wry',
+    },
+    {
+      body: 'Кто-то сегодня порадуется, что вы появились. Скорее всего, сразу несколько человек.',
       tag: 'warm',
     },
     {
-      body: 'Вот ваше небо, ярко и ясно, — читайте его как друг, который не ходит вокруг да около.',
+      body: 'Возьмите то, что всё время откладываете. Сегодня оно меньше, чем кажется.',
       tag: 'bold',
     },
     {
-      body: 'Космическая записка: без обречённости, немного света против мглы и одно аккуратное дерзание.',
-      tag: 'playful',
-    },
-    {
-      body: 'Устраивайтесь поудобнее; это чтение разворачивается медленно, как вечерний свет по воде.',
+      body: 'Один глубокий выдох — до того, как календарь начнёт предъявлять требования.',
       tag: 'calm',
     },
+    { body: 'Прогноз на день: кое-где победы и лёгкий шанс покрасоваться.', tag: 'playful' },
   ],
   reflections: [
-    'Как бы выглядело «достаточно» сегодня?',
-    'Какую маленькую доброту можно отправить без подписи?',
-    'Если бы у сегодняшнего дня был подзаголовок, каким бы он был?',
-    'Что вы несёте, что вам не принадлежит нести?',
+    'Что сделает сегодняшний вечер удачным — если честно?',
+    'Какое обещание себе давно ждёт хотя бы маленькой оплаты?',
+    'Кому сегодня пригодилась бы ваша лёгкая версия?',
+    'Если бы никто не вёл счёт, что бы вы делали иначе после обеда?',
+    'Что можно спокойно поставить на пол до ужина?',
+    'Где на этой неделе вы были по-настоящему полезны?',
+    'Что вы репетируете, чему давно пора выйти на сцену?',
+    'Какой разговор становится короче с каждым переносом на завтра?',
+    'Как выглядит «чуть лучше» — не сильно, а именно чуть?',
+    'За что завтра вы тихо скажете себе спасибо?',
   ],
   closings: [
-    { body: 'Как бы ни развернулся день, вы имеете право встречать его мягко.', tag: 'warm' },
-    { body: 'Примите этот день на свой счёт — в хорошем смысле — и используйте его.', tag: 'bold' },
-    { body: 'Звёзды не несут ответственности за внезапно хорошее настроение.', tag: 'playful' },
+    { body: 'Как бы ни прошёл день, завершите его на своих условиях.', tag: 'warm' },
+    { body: 'Хватит читать. Сделайте первый шаг.', tag: 'bold' },
+    { body: 'Пусть вечер останется вечером, а не второй сменой.', tag: 'calm' },
+    { body: 'Вселенная сегодня не при делах — давления с её стороны не будет.', tag: 'playful' },
+    { body: 'Снова побеждают маленькие постоянные вещи. Доверьтесь им.', tag: 'grounded' },
     {
-      body: 'Ничего не нужно решать этим вечером; пусть небо занимается оборотом само.',
-      tag: 'calm',
+      body: 'Если всё остальное не сработает, вы всё равно самый интересный человек в этой комнате.',
+      tag: 'wry',
     },
+    { body: 'У вас идёт лучше, чем докладывает внутренний критик.', tag: 'warm' },
+    { body: 'Аккуратно поставьте день на место — он донёс вас досюда.', tag: 'calm' },
+    { body: 'Ещё одно честное усилие — и отдых. Вот и весь рецепт.', tag: 'bold' },
+    { body: 'Идите и будьте очаровательно сложным человеком.', tag: 'playful' },
   ],
 };
 
@@ -411,68 +696,76 @@ function block(
 
 function buildLocaleBlocks(
   locale: Locale,
-  signs: Record<ZodiacSignId, SignContent>,
+  signsA: Record<ZodiacSignId, SignContent>,
+  signsB: Record<ZodiacSignId, SignContent>,
   free: FreePool,
 ): ContentBlock[] {
   const blocks: ContentBlock[] = [];
   const prefix = locale === 'en' ? 'en' : 'ru';
+  const arcs: Array<[Record<ZodiacSignId, SignContent>, 'a' | 'b']> = [
+    [signsA, 'a'],
+    [signsB, 'b'],
+  ];
 
-  for (const signId of ZODIAC_SIGN_IDS) {
-    const content = signs[signId];
-    const arcId = `${prefix}-${signId}-a`;
+  for (const [signs, arcLetter] of arcs) {
+    for (const signId of ZODIAC_SIGN_IDS) {
+      const content = signs[signId];
+      const arcId = `${prefix}-${signId}-${arcLetter}`;
+      const arcNo = arcLetter === 'a' ? 1 : 2;
 
-    content.titles.forEach((title, index) => {
+      content.titles.forEach((title, index) => {
+        blocks.push(
+          block({
+            id: `${prefix}-${signId}-title-${(arcNo - 1) * 2 + index + 1}`,
+            locale,
+            signId,
+            period: 'any',
+            theme: 'any',
+            slot: 'title',
+            narrativeArcId: arcId,
+            variantGroup: `${arcId}:title`,
+            body: title,
+            weight: index === 0 ? 55 : 45,
+          }),
+        );
+      });
+
       blocks.push(
         block({
-          id: `${prefix}-${signId}-title-${index + 1}`,
+          id: `${prefix}-${signId}-overview-${arcNo}`,
           locale,
           signId,
           period: 'any',
           theme: 'any',
-          slot: 'title',
+          slot: 'overview',
           narrativeArcId: arcId,
-          variantGroup: `${arcId}:title`,
-          body: title,
-          weight: index === 0 ? 55 : 45,
+          variantGroup: `${arcId}:overview`,
+          body: content.overview,
+          excludedTags: content.excludedOpeningTags,
         }),
       );
-    });
 
-    blocks.push(
-      block({
-        id: `${prefix}-${signId}-overview-1`,
-        locale,
-        signId,
-        period: 'any',
-        theme: 'any',
-        slot: 'overview',
-        narrativeArcId: arcId,
-        variantGroup: `${arcId}:overview`,
-        body: content.overview,
-        excludedTags: content.excludedOpeningTags,
-      }),
-    );
-
-    const themeBodies: Array<['focus' | 'relationships' | 'work' | 'growth', string]> = [
-      ['focus', content.focus],
-      ['relationships', content.relationships],
-      ['work', content.work],
-      ['growth', content.growth],
-    ];
-    for (const [slot, body] of themeBodies) {
-      blocks.push(
-        block({
-          id: `${prefix}-${signId}-${slot}-1`,
-          locale,
-          signId,
-          period: 'any',
-          theme: slot === 'focus' ? 'general' : slot,
-          slot,
-          narrativeArcId: arcId,
-          variantGroup: `${arcId}:${slot}`,
-          body,
-        }),
-      );
+      const themeBodies: Array<['focus' | 'relationships' | 'work' | 'growth', string]> = [
+        ['focus', content.focus],
+        ['relationships', content.relationships],
+        ['work', content.work],
+        ['growth', content.growth],
+      ];
+      for (const [slot, body] of themeBodies) {
+        blocks.push(
+          block({
+            id: `${prefix}-${signId}-${slot}-${arcNo}`,
+            locale,
+            signId,
+            period: 'any',
+            theme: slot === 'focus' ? 'general' : slot,
+            slot,
+            narrativeArcId: arcId,
+            variantGroup: `${arcId}:${slot}`,
+            body,
+          }),
+        );
+      }
     }
   }
 
@@ -530,13 +823,15 @@ function main(): void {
   const outDir = path.join(process.cwd(), 'fixtures', 'content');
   fs.mkdirSync(outDir, { recursive: true });
 
-  const locales: Array<[Locale, Record<ZodiacSignId, SignContent>, FreePool]> = [
-    ['en', EN_SIGNS, EN_FREE],
-    ['ru', RU_SIGNS, RU_FREE],
+  const locales: Array<
+    [Locale, Record<ZodiacSignId, SignContent>, Record<ZodiacSignId, SignContent>, FreePool]
+  > = [
+    ['en', EN_SIGNS, EN_SIGNS_B, EN_FREE],
+    ['ru', RU_SIGNS, RU_SIGNS_B, RU_FREE],
   ];
 
-  for (const [locale, signs, free] of locales) {
-    const blocks = buildLocaleBlocks(locale, signs, free);
+  for (const [locale, signsA, signsB, free] of locales) {
+    const blocks = buildLocaleBlocks(locale, signsA, signsB, free);
     for (const b of blocks) {
       const check = contentBlockSchema.safeParse(b);
       if (!check.success) {

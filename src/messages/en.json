@@ -20,20 +20,18 @@
       "signLabel": "Zodiac sign",
       "periodLabel": "Period",
       "themeLabel": "Focus (optional)",
-      "submit": "Get horoscope",
       "loading": "Assembling your horoscope…",
       "showAnother": "Show another",
       "signSelected": "Selected sign: {name}"
     },
     "explorerTeaser": {
       "title": "Explore the zodiac wheel",
-      "text": "Visit the interactive zodiac explorer (in development).",
+      "text": "Spin the interactive zodiac wheel and meet the signs.",
       "cta": "Open zodiac explorer"
     }
   },
   "result": {
     "assembledAt": "Assembled {date}",
-    "aiBadge": "AI-generated",
     "reflectionLabel": "Reflection prompt",
     "copy": "Copy",
     "copied": "Copied to clipboard",
@@ -113,8 +111,7 @@
   },
   "notice": {
     "title": "AI-generated content",
-    "text": "All horoscopes on AstralCanvas are AI-generated and assembled from pre-generated AI-written content. They are intended for entertainment and self-reflection only, not as factual predictions or professional advice. Astrology is not scientifically established as a reliable way to predict individual events.",
-    "short": "AI-generated · assembled from pre-written AI content · for entertainment"
+    "text": "All horoscopes on AstralCanvas are AI-generated and assembled from pre-generated AI-written content. They are intended for entertainment and self-reflection only, not as factual predictions or professional advice. Astrology is not scientifically established as a reliable way to predict individual events."
   },
   "errors": {
     "invalid_request": "That request wasn't valid. Please check your selection and try again.",
@@ -127,9 +124,57 @@
   },
   "explorer": {
     "title": "Zodiac explorer",
-    "lead": "An interactive, stylized zodiac wheel with shader-driven planets is planned for the next milestone. Planet positions in the scene will be decorative, not astronomically exact.",
-    "status": "In development",
-    "back": "Back to horoscopes"
+    "lead": "An interactive, stylized zodiac wheel with shader-driven planets and a twinkling star field. Pick a sign — in the scene or from the list — to read about it and jump to its horoscope.",
+    "back": "Back to horoscopes",
+    "canvasLabel": "Interactive zodiac wheel: twelve glyphs around a ring of orbiting, shader-lit planets, over a star field. Select a glyph in the scene or use the sign list.",
+    "loading": "Preparing the scene…",
+    "canvasFallback": "Your browser couldn't start WebGL, so the interactive 3D scene isn't available here. The sign list and sign guide below work without it.",
+    "decorativeNote": "The scene is decorative: bodies and positions are stylized, not astronomically accurate.",
+    "selection": {
+      "label": "Zodiac signs",
+      "hint": "Select a sign with a click in the scene, or from this list — keyboard works everywhere.",
+      "noneSelected": "Select a sign to see its details.",
+      "selected": "Selected sign: {name}"
+    },
+    "info": {
+      "element": "Element",
+      "dates": "Dates",
+      "datesApprox": "approx. {range}",
+      "readHoroscope": "Read the {name} horoscope"
+    },
+    "controls": {
+      "title": "Scene controls",
+      "pause": "Pause animation",
+      "resume": "Resume animation",
+      "reset": "Restore defaults",
+      "reducedMotion": "Reduced motion is on, so animation starts paused. You can still explore and resume it.",
+      "effects": "Effects intensity",
+      "glow": "Planet glow",
+      "density": "Star density",
+      "quality": "Quality",
+      "quality_low": "Low",
+      "quality_medium": "Medium",
+      "quality_high": "High",
+      "links": "Arcane lines"
+    },
+    "perf": {
+      "title": "Performance panel",
+      "note": "Renderer-level estimates only (not total GPU cost or VRAM).",
+      "fps": "FPS estimate",
+      "avg": "Avg frame time",
+      "p95": "p95 frame time",
+      "draws": "Draw calls",
+      "tris": "Triangles",
+      "stars": "Stars drawn",
+      "scale": "Render scale",
+      "paused": "paused"
+    }
+  },
+  "elements": {
+    "fire": "Fire",
+    "earth": "Earth",
+    "air": "Air",
+    "water": "Water"
   },
   "about": {
     "title": "About AstralCanvas",
