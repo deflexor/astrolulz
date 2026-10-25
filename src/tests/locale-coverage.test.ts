@@ -44,7 +44,6 @@ describe('message dictionaries', () => {
       'home.form.periodLabel',
       'home.form.themeLabel',
       'home.form.loading',
-      'home.form.showAnother',
       'home.explorerTeaser.cta',
       'result.assembledAt',
       'result.reflectionLabel',

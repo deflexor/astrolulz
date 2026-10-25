@@ -201,18 +201,8 @@ export function HoroscopeForm() {
         </fieldset>
       </div>
 
-      <div className={styles.actions}>
-        {state.kind === 'success' && (
-          <button
-            type="button"
-            className={styles.secondaryButton}
-            onClick={requestHoroscope}
-            disabled={busy}
-          >
-            {t('home.form.showAnother')}
-          </button>
-        )}
-      </div>
+      {/* The reading refreshes automatically on selection change (owner
+          request, 2026-10-25: no manual refresh button); errors keep a retry. */}
 
       <div aria-live="polite">
         {state.kind === 'loading' && <p className={styles.loading}>{t('home.form.loading')}</p>}

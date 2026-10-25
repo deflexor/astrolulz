@@ -215,7 +215,9 @@ function measureScope(
     },
     validCombinations: count,
     atLeast: capped,
-    meetsTarget: supported && count >= target && !capped,
+    // A capped enumeration is a lower bound above the cap itself, so it
+    // necessarily meets any target below that cap (20 000 > target 1 000).
+    meetsTarget: supported && (capped || count >= target),
     missingSlots,
   };
 }

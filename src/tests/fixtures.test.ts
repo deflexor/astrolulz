@@ -61,11 +61,14 @@ describe('development content fixtures', () => {
     expect(report.summary.missingScopes).toBe(0);
     expect(report.duplicateHashes).toEqual([]);
     for (const scope of report.scopes) {
+      // The third arc (2026-10-25) pushes most scopes past the 20 000
+      // enumeration cap, so counts may be reported as lower bounds
+      // (`atLeast`) — but every scope must meet the variety target.
       expect(
         scope.validCombinations,
         `${scope.locale}/${scope.signId}/${scope.period}/${scope.theme}`,
-      ).toBeGreaterThan(0);
-      expect(scope.atLeast).toBe(false);
+      ).toBeGreaterThanOrEqual(1000);
+      expect(scope.meetsTarget).toBe(true);
     }
   });
 

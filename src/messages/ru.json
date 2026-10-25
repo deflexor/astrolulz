@@ -21,7 +21,6 @@
       "periodLabel": "Период",
       "themeLabel": "Фокус (необязательно)",
       "loading": "Собираем гороскоп…",
-      "showAnother": "Показать другой",
       "signSelected": "Выбранный знак: {name}"
     },
     "explorerTeaser": {

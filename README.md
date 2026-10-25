@@ -2,6 +2,8 @@
 
 Multilingual AI horoscope experience with a pre-generated content bank, a deterministic composition engine, and an interactive shader-based zodiac scene. Built with Next.js, TypeScript, next-intl, Supabase, and Three.js.
 
+**Live:** [astrolulz.vercel.app](https://astrolulz.vercel.app/)
+
 **Core principle:** a user request never calls an AI model. All horoscope text is written with AI ahead of time in batch runs, validated, stored in a content bank (Supabase in production, local JSONL fixtures in development), and assembled at request time by a pure, testable TypeScript composition engine. See [`docs/architecture.md`](docs/architecture.md).
 
 > **AI disclosure:** All horoscopes on AstralCanvas are AI-generated and assembled from pre-generated AI-written content. They are intended for entertainment and self-reflection only — not as factual predictions or professional advice. Astrology is not scientifically established as a reliable way to predict individual events.
@@ -10,17 +12,17 @@ Multilingual AI horoscope experience with a pre-generated content bank, a determ
 
 Spec: `AstralCanvas_Technical_Specification(1).md` (implementation plan §18).
 
-| Milestone                    | Scope                                                                                                              | Status                                                              |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- |
-| 1 — Foundation & i18n        | Next.js + TS strict, `/en` `/ru` locale routing, dictionaries, responsive UI, AI notice/disclaimer                 | ✅ Done                                                             |
-| 2 — Supabase content model   | SQL migrations + RLS, repository interface, fixtures, schema validation, coverage report                           | ✅ Done (applied to the live project)                               |
-| 3 — Pre-generation pipeline  | Batch AI provider adapter, bounded generation with dry-run/mock/resume/retry, validation, idempotent import/export | ✅ Done                                                             |
-| 4 — Composition engine & API | Pure composition engine, `/api/horoscope` (no AI calls), localized errors, “Show another”, repetition avoidance    | ✅ Done (smoke-tested incl. 503 path)                               |
-| 5 — Three.js zodiac scene    | Browser-only scene, 2+ custom GLSL shaders, controls, performance panel                                            | ✅ Done (first measurements collected)                              |
-| 6 — Performance & deployment | Real-device measurements, Vercel deploy                                                                            | ⬜ Partial — env/deploy steps documented; deploy pending            |
-| 7 — Portfolio polish         | Screenshots, demo recording, published measurements                                                                | ⬜ Partial — measurements + coverage published; screenshots pending |
+| Milestone                    | Scope                                                                                                              | Status                                                                                                          |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| 1 — Foundation & i18n        | Next.js + TS strict, `/en` `/ru` locale routing, dictionaries, responsive UI, AI notice/disclaimer                 | ✅ Done                                                                                                         |
+| 2 — Supabase content model   | SQL migrations + RLS, repository interface, fixtures, schema validation, coverage report                           | ✅ Done (applied to the live project)                                                                           |
+| 3 — Pre-generation pipeline  | Batch AI provider adapter, bounded generation with dry-run/mock/resume/retry, validation, idempotent import/export | ✅ Done                                                                                                         |
+| 4 — Composition engine & API | Pure composition engine, `/api/horoscope` (no AI calls), localized errors, “Show another”, repetition avoidance    | ✅ Done (smoke-tested incl. 503 path)                                                                           |
+| 5 — Three.js zodiac scene    | Browser-only scene, 2+ custom GLSL shaders, controls, performance panel                                            | ✅ Done (first measurements collected)                                                                          |
+| 6 — Performance & deployment | Real-device measurements, Vercel deploy                                                                            | ✅ Deployed ([astrolulz.vercel.app](https://astrolulz.vercel.app/)) — full measurement matrix partially pending |
+| 7 — Portfolio polish         | Screenshots, demo recording, published measurements                                                                | 🟨 In progress — measurements + coverage published; demo recording pending                                      |
 
-Milestones 1–5 are implemented and locally verified (62 Vitest tests, lint/typecheck/build clean, live browser smoke of the scene in both locales). Milestone 6 requires a Vercel project and the Supabase dashboard service-role key — both owner actions; see [Deploying to Vercel](#deploying-to-vercel).
+Milestones 1–6 are implemented and verified (62 Vitest tests, lint/typecheck/build clean; live deployment at [astrolulz.vercel.app](https://astrolulz.vercel.app/)). Milestone 7 (demo recording) remains.
 
 ## Quickstart (no external services needed)
 
@@ -29,7 +31,7 @@ npm install
 npm run dev        # http://localhost:3000 → redirects to /en
 ```
 
-Local development runs against the committed fixtures in `fixtures/content/*.jsonl` (396 approved blocks — two hand-authored narrative arcs per sign plus expanded free pools, English + Russian, all 12 signs) — no Supabase project or AI key required.
+Local development runs against the committed fixtures in `fixtures/content/*.jsonl` (576 approved blocks — three hand-authored narrative arcs per sign, period-flavored free pools, English + Russian, all 12 signs) — no Supabase project or AI key required.
 
 ## Commands
 
@@ -74,9 +76,11 @@ Copy `.env.example` → `.env.local`. Everything is optional for local developme
    npm run content:import -- --input fixtures/content/en.jsonl,fixtures/content/ru.jsonl --into supabase --approve
    npm run content:coverage -- --source supabase
    ```
-   Both commands work with either `SUPABASE_SERVICE_ROLE_KEY` (REST) or `SUPABASE_DB_URL` (direct connection). Current production state (2026-10-24): 396 blocks imported, 192/192 scopes supported at 2,560–4,000 valid combinations per scope (above the 1,000/scope target), 0 duplicates — snapshots in `docs/reports/`.
+   Both commands work with either `SUPABASE_SERVICE_ROLE_KEY` (REST) or `SUPABASE_DB_URL` (direct connection). Current production state (2026-10-25): 576 blocks imported, 192/192 scopes supported at 4,800+ valid combinations per scope (above the 1,000/scope target), 0 duplicates — snapshots in `docs/reports/`.
 
 ## Deploying to Vercel
+
+The app is live at [astrolulz.vercel.app](https://astrolulz.vercel.app/). The steps below document how it is deployed (and how to redeploy).
 
 1. Push the repo; import it in Vercel (Next.js is auto-detected).
 2. Set environment variables for **Production and Preview**:
@@ -139,9 +143,9 @@ docs/                      # architecture, content pipeline, localization, discl
 
 ## Known limitations
 
-- Not yet deployed: Vercel import + env vars are owner actions; the production checklist items that need a live deployment remain open (see above).
+- Deployed at [astrolulz.vercel.app](https://astrolulz.vercel.app/). Production checklist items still open: mobile WebGL on a physical device; re-measuring scene presets at the raised star counts.
 - Scene performance: first measurements exist (desktop, RTX 5060 laptop — `docs/performance.md`) but the full matrix (30 s windows per preset, High preset, density sweep, a real mobile device) is pending; nothing is claimed beyond what was measured.
-- All current bank text is hand-authored template content (396 blocks, two arcs per sign). The AI batch pipeline (`content:generate`) remains the intended way to grow the bank further; hand-authored copy is varied but finite, and the repetition-avoidance window still bottoms out after dozens of readings in one scope.
+- All current bank text is hand-authored template content (576 blocks, three arcs per sign). The AI batch pipeline (`content:generate`) remains the intended way to grow the bank further; hand-authored copy is varied but finite, and the repetition-avoidance window still bottoms out after dozens of readings in one scope.
 - DB-backed serving (`CONTENT_SOURCE=supabase`) requires `SUPABASE_SERVICE_ROLE_KEY`, which only project owners can copy from the dashboard; the DB itself is imported, coverage-verified, and its anonymous surface fully closed.
 - The WebGL fallback (no WebGL → readable notice + DOM-only sign guide) is implemented but was not exercised on a real no-WebGL browser this session.
 - The in-memory rate limiter is per-instance (Vercel functions); it is basic abuse protection, not a durable quota.

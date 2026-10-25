@@ -1,0 +1,3660 @@
+{
+  "targetPerScope": 1000,
+  "scopes": [
+    {
+      "locale": "en",
+      "signId": "aries",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "aries",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "aries",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "aries",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "aries",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "aries",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "aries",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "aries",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "taurus",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "taurus",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "taurus",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "taurus",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "taurus",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "taurus",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "taurus",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "taurus",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "gemini",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 7920,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "gemini",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 7920,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "gemini",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 7920,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "gemini",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 7920,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "gemini",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 7920,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "gemini",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 7920,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "gemini",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 7920,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "gemini",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 7920,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "cancer",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "cancer",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "cancer",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "cancer",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "cancer",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "cancer",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "cancer",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "cancer",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "leo",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "leo",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "leo",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "leo",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "leo",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "leo",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "leo",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "leo",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "virgo",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5040,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "virgo",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5040,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "virgo",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5040,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "virgo",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5040,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "virgo",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "virgo",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "virgo",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "virgo",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "libra",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5880,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "libra",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5880,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "libra",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5880,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "libra",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5880,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "libra",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 6240,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "libra",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 6240,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "libra",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 6240,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "libra",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 6240,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "scorpio",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "scorpio",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "scorpio",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "scorpio",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "scorpio",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "scorpio",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "scorpio",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "scorpio",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "sagittarius",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "sagittarius",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "sagittarius",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "sagittarius",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "sagittarius",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "sagittarius",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "sagittarius",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "sagittarius",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "capricorn",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "capricorn",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "capricorn",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "capricorn",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "capricorn",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "capricorn",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "capricorn",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "capricorn",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "aquarius",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 6240,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "aquarius",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 6240,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "aquarius",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 6240,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "aquarius",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 6240,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "aquarius",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5840,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "aquarius",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5840,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "aquarius",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5840,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "aquarius",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5840,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "pisces",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "pisces",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "pisces",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "pisces",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "pisces",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "pisces",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "pisces",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "en",
+      "signId": "pisces",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "aries",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "aries",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "aries",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "aries",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "aries",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "aries",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "aries",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "aries",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "taurus",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "taurus",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "taurus",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "taurus",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "taurus",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "taurus",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "taurus",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "taurus",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "gemini",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 7920,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "gemini",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 7920,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "gemini",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 7920,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "gemini",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 7920,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "gemini",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 7920,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "gemini",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 7920,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "gemini",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 7920,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "gemini",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 7920,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "cancer",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "cancer",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "cancer",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "cancer",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "cancer",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "cancer",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "cancer",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "cancer",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "leo",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "leo",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "leo",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "leo",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "leo",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "leo",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "leo",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "leo",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "virgo",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5040,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "virgo",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5040,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "virgo",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5040,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "virgo",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5040,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "virgo",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "virgo",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "virgo",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "virgo",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "libra",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5880,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "libra",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5880,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "libra",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5880,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "libra",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5880,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "libra",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 6240,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "libra",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 6240,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "libra",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 6240,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "libra",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 6240,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "scorpio",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "scorpio",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "scorpio",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "scorpio",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "scorpio",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "scorpio",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "scorpio",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "scorpio",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "sagittarius",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "sagittarius",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "sagittarius",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "sagittarius",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "sagittarius",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "sagittarius",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "sagittarius",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "sagittarius",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4800,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "capricorn",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "capricorn",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "capricorn",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "capricorn",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "capricorn",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "capricorn",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "capricorn",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "capricorn",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "aquarius",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 6240,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "aquarius",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 6240,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "aquarius",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 6240,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "aquarius",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 6240,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "aquarius",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5840,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "aquarius",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5840,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "aquarius",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5840,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "aquarius",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5840,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "pisces",
+      "period": "daily",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "pisces",
+      "period": "daily",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "pisces",
+      "period": "daily",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "pisces",
+      "period": "daily",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 4860,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "pisces",
+      "period": "weekly",
+      "theme": "general",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "focus": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "pisces",
+      "period": "weekly",
+      "theme": "relationships",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "relationships": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "pisces",
+      "period": "weekly",
+      "theme": "work",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "work": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    },
+    {
+      "locale": "ru",
+      "signId": "pisces",
+      "period": "weekly",
+      "theme": "growth",
+      "completeArcs": 3,
+      "poolSizes": {
+        "title": 6,
+        "overview": 3,
+        "growth": 3,
+        "opening": 12,
+        "reflection_prompt": 10,
+        "closing": 11
+      },
+      "validCombinations": 5400,
+      "atLeast": false,
+      "meetsTarget": true,
+      "missingSlots": []
+    }
+  ],
+  "duplicateHashes": [],
+  "summary": {
+    "totalScopes": 192,
+    "supportedScopes": 192,
+    "missingScopes": 0,
+    "belowTargetScopes": 0
+  }
+}
