@@ -285,7 +285,7 @@ export function ExplorerScene() {
                 aria-pressed={sign.id === selectedSign}
                 onClick={() => selectSign(sign.id)}
               >
-                <span className={styles.signSymbol} aria-hidden="true">
+                <span className={`${styles.signSymbol} zodiac-symbol`} aria-hidden="true">
                   {sign.symbol}
                 </span>
                 <span className={styles.signName}>{tRoot(`zodiac.${sign.id}.name`)}</span>
@@ -303,7 +303,9 @@ export function ExplorerScene() {
           {selected ? (
             <>
               <h2 className={styles.infoTitle}>
-                <span aria-hidden="true">{selected.symbol}</span>{' '}
+                <span aria-hidden="true" className="zodiac-symbol">
+                  {selected.symbol}
+                </span>{' '}
                 {tRoot(`zodiac.${selected.id}.name`)}
               </h2>
               <p className={styles.infoDescription}>{tRoot(`zodiac.${selected.id}.description`)}</p>

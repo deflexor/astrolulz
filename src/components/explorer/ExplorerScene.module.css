@@ -27,11 +27,13 @@
   aspect-ratio: 4 / 3;
   max-height: 56vh;
   min-height: 280px;
-  background:
-    radial-gradient(800px 400px at 70% -20%, rgba(139, 124, 246, 0.12), transparent 60%),
-    var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  /* Parchment — also the no-WebGL fallback beneath the paper shader. */
+  background: var(--bg-elevated);
+  border: 1px solid rgba(64, 47, 24, 0.55);
+  border-radius: 5px 12px 4px 10px / 10px 4px 12px 5px;
+  box-shadow:
+    inset 0 0 0 1px rgba(64, 47, 24, 0.18),
+    var(--shadow);
   overflow: hidden;
 }
 
@@ -60,19 +62,20 @@
 .decorativeNote {
   margin: 0;
   font-size: 0.8rem;
-  color: var(--ink-muted);
+  color: var(--ink-light-muted);
 }
 
 /* --- controls ------------------------------------------------------------ */
 
 .controls {
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: 5px 10px 4px 9px / 9px 4px 10px 5px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
   background: var(--bg-elevated);
+  box-shadow: inset 0 0 22px rgba(140, 104, 44, 0.14);
 }
 
 .controlRow {
@@ -82,7 +85,7 @@
 }
 
 .controlButton {
-  background: var(--bg-hover);
+  background: var(--parchment-bright);
   border: 1px solid var(--border);
   color: var(--ink);
   border-radius: var(--radius-sm);
@@ -92,6 +95,7 @@
 
 .controlButton:hover {
   border-color: var(--accent);
+  color: var(--accent);
 }
 
 .checkboxLabel {
@@ -143,10 +147,14 @@
   cursor: pointer;
 }
 
+.qualityRow button:hover {
+  color: var(--ink);
+}
+
 .qualityRow .segmentActive {
   background: var(--accent-soft);
   border-color: var(--accent);
-  color: var(--ink);
+  color: var(--accent);
 }
 
 .qualityLabel {
@@ -161,6 +169,7 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--bg-elevated);
+  box-shadow: inset 0 0 18px rgba(140, 104, 44, 0.12);
 }
 
 .perfToggle {
@@ -172,7 +181,7 @@
   padding: 0.6rem 1rem;
   cursor: pointer;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .perfToggle:hover {
@@ -220,6 +229,7 @@
   border-radius: var(--radius);
   padding: 1rem;
   background: var(--bg-elevated);
+  box-shadow: inset 0 0 22px rgba(140, 104, 44, 0.14);
 }
 
 .selectionHint {
@@ -240,7 +250,7 @@
   align-items: center;
   gap: 0.15rem;
   padding: 0.45rem 0.3rem;
-  background: var(--bg-hover);
+  background: var(--parchment-bright);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   color: var(--ink);
@@ -254,6 +264,10 @@
 .signButtonActive {
   background: var(--accent-soft);
   border-color: var(--accent);
+}
+
+.signButtonActive .signSymbol {
+  color: var(--accent);
 }
 
 .signSymbol {
@@ -277,6 +291,7 @@
   border-radius: var(--radius);
   padding: 1rem;
   background: var(--bg-elevated);
+  box-shadow: inset 0 0 22px rgba(140, 104, 44, 0.14);
 }
 
 .infoTitle {

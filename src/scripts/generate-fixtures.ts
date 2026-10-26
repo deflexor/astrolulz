@@ -41,7 +41,7 @@ type FreePool = {
 };
 
 const CREATED_AT = '2026-10-25T00:00:00.000Z';
-const CONTENT_VERSION = 'fixture-v3';
+const CONTENT_VERSION = 'fixture-v4';
 
 const EN_SIGNS: Record<ZodiacSignId, SignContent> = {
   aries: {
@@ -420,6 +420,135 @@ const EN_SIGNS_C: Record<ZodiacSignId, SignContent> = {
   },
 };
 
+/**
+ * Fourth narrative arc per sign (2026-10-26 variety pass): the "almanac"
+ * register — light archaic diction, hearth/ink/road imagery, written to match
+ * the medieval redesign. Same style rules as the other arcs: speak about the
+ * reader's day directly, no meta references, concrete imagery over abstract
+ * advice.
+ */
+const EN_SIGNS_D: Record<ZodiacSignId, SignContent> = {
+  aries: {
+    titles: ['Light the First Fire', 'The Vanguard’s Hour'],
+    overview:
+      'Kindle the day’s first fire early: an ember of effort now will warm the hours that follow.',
+    focus: 'Set the morning’s one true task upon the table before other voices gather.',
+    relationships:
+      'A frank word spoken kindly is worth ten curving ones; deliver it while the fire is hot.',
+    work: 'Strike while the iron is lit — the bold draft today outshines the careful silence.',
+    growth: 'Be the captain of your temper, not its horse; reins cost little and carry far.',
+    excludedOpeningTags: ['calm'],
+  },
+  taurus: {
+    titles: ['The Full Larder', 'Slow Gold'],
+    overview:
+      'The day is a well-stored pantry; take one shelf at a time and nothing will spoil.',
+    focus: 'Keep to the furrow you have ploughed; the straight row yields the harvest.',
+    relationships:
+      'Break bread with a neighbor: the oldest of customs still carries the warmest news.',
+    work: 'Tend the ledger with patience — steady columns outlast clever flourishes.',
+    growth: 'Count what you have kept, not what you have won; the granary remembers.',
+    excludedOpeningTags: ['playful'],
+  },
+  gemini: {
+    titles: ['The Messenger’s Road', 'Two Quills, One Letter'],
+    overview: 'News travels swiftly today; choose which letter deserves your finest hand.',
+    focus: 'Set the hourglass for one matter only; the rest may wait for the post.',
+    relationships:
+      'Carry good tidings between houses — the courier who brings smiles is always welcome.',
+    work: 'Write plainly, seal truly; a short missive travels farther than a long one.',
+    growth: 'Let the curious mind visit many stalls but buy from one.',
+    excludedOpeningTags: [],
+  },
+  cancer: {
+    titles: ['The Hearth Keeps Its Own', 'Walls of Kindness'],
+    overview: 'Draw the circle of home a little wider today; what you shelter will flourish.',
+    focus: 'Set the hall in order first — a swept hearth makes light work of heavy thoughts.',
+    relationships:
+      'Send for the one who has gone quiet; a tray of warm bread opens more doors than knocks.',
+    work: 'Guard the quiet hour as you would guard the keys to the house.',
+    growth: 'The tide asks no permission to turn; neither must you, when the moment comes.',
+    excludedOpeningTags: ['bold'],
+  },
+  leo: {
+    titles: ['The Gilded Hour', 'Banner High'],
+    overview: 'Carry the banner generously today: light shared is light doubled, not halved.',
+    focus: 'Take up the task the crowd will see done, and do it with craft.',
+    relationships:
+      'Crown another with honest praise; a laurel costs you nothing and lifts them far.',
+    work: 'Let the work be bold in color; pale ink is for fainter days.',
+    growth: 'Even the lion rests at noon; the pause is part of the hunt.',
+    excludedOpeningTags: ['calm'],
+  },
+  virgo: {
+    titles: ['The Scrivener’s Hand', 'A Place for Every Tool'],
+    overview:
+      'The day rewards a careful hand: mend one small seam and the whole garment serves longer.',
+    focus: 'Choose the smallest unturned stone and turn it well.',
+    relationships: 'Offer help with sleeves rolled, not with speeches; the deed is the word.',
+    work: 'Check the ledger twice; the second reading finds the coin the first dropped.',
+    growth: 'Let “well made” be the measure, not “ruined by perfection”.',
+    excludedOpeningTags: ['bold'],
+  },
+  libra: {
+    titles: ['The Balanced Scale', 'Charters of Grace'],
+    overview: 'Weigh the day gently: the scale tips easiest under a calm hand.',
+    focus: 'Hold the two choices up to candlelight; one will show its face.',
+    relationships:
+      'Broker the small peace; the bridge-builder is remembered fondly in both villages.',
+    work: 'Fairness is a craft: one fair dealing today repays a season of trust.',
+    growth: 'Your own wishes deserve a place upon the scale as well.',
+    excludedOpeningTags: ['bold'],
+  },
+  scorpio: {
+    titles: ['The Deep Well', 'Watch of the Night'],
+    overview:
+      'Still waters hold the truest reflection; look deep and choose one truth to act on.',
+    focus: 'Take the hidden task — the one behind the locked door is yours to open.',
+    relationships: 'Keep a friend’s counsel as you would keep a key: close, and never rusty.',
+    work: 'Dig where the ground is quiet; the richest ore lies under the least-traveled path.',
+    growth: 'Burn the old grudge in tonight’s candle; ash weighs nothing.',
+    excludedOpeningTags: ['bold'],
+  },
+  sagittarius: {
+    titles: ['The Far March', 'Arrow Toward Morning'],
+    overview: 'Point the arrow past the hedge; the far road rewards the early walker today.',
+    focus: 'Choose the road that widens, not the one that merely shortens.',
+    relationships: 'Invite a companion along the long way; miles are shorter when shared.',
+    work: 'Study the map beyond your own border; the neighboring field teaches the fence-builder.',
+    growth: 'Book the passage now; resolve, like bread, is best when fresh.',
+    excludedOpeningTags: ['calm'],
+  },
+  capricorn: {
+    titles: ['The Mason’s Patience', 'Scaffold and Stone'],
+    overview:
+      'Lay today’s stone truly and let tomorrow admire the wall; slow masonry outlasts storms.',
+    focus: 'Cut one big task into coach-sized pieces and carry the first before dusk.',
+    relationships: 'Keep faith in small deeds: arrive early, remember the debt, mind the promise.',
+    work: 'Repair the mill-wheel, not the millstone’s noise; mend the cause, not the echo.',
+    growth: 'Rest is the scaffold, not a theft from the build; take it by decree.',
+    excludedOpeningTags: ['playful'],
+  },
+  aquarius: {
+    titles: ['The New Constellation', 'The Weather-Glass Reads Change'],
+    overview: 'A strange wind blows useful things today; open the window before it changes its mind.',
+    focus: 'Turn one custom on its head and see what falls from its pockets.',
+    relationships: 'Trade oddities with a friend: your peculiar key fits their curious lock.',
+    work: 'Build the little engine that does the boring work; every guild began with one such tool.',
+    growth: 'Seek the company that refills you; even alchemists worked in company.',
+    excludedOpeningTags: ['calm'],
+  },
+  pisces: {
+    titles: ['The Dreamer’s Compass', 'Tides of the Inner Sea'],
+    overview: 'The day speaks in images; catch one on paper and it will agree to be real.',
+    focus: 'Leave one hour unruled; the unlabeled jar holds the best preserve.',
+    relationships: 'Lend an ear as you would lend a boat: fully, and without counting oars.',
+    work: 'Begin the task in its middle; the beginning will send word when it is ready.',
+    growth: 'Pour the feeling into a vessel — ink, song, or soil — and carry it lighter.',
+    excludedOpeningTags: ['bold'],
+  },
+};
+
 const EN_FREE: FreePool = {
   openings: [
     {
@@ -461,6 +590,35 @@ const EN_FREE: FreePool = {
       tag: 'wry',
       period: 'weekly',
     },
+    { body: 'The hearth is lit and the hall is yours: begin where the warmth is.', tag: 'warm' },
+    { body: 'Herald’s note: the day favors those already in the saddle.', tag: 'bold' },
+    { body: 'No dragons today — just a handful of very beatable errands.', tag: 'playful' },
+    { body: 'A quiet page in the almanac: read it slowly, act gently.', tag: 'calm' },
+    { body: 'Boots on, lantern lit — the road respects the early walker.', tag: 'grounded' },
+    { body: 'The chronicle will record only what you actually do. Choose accordingly.', tag: 'wry' },
+    {
+      body: 'Somebody’s day improves the moment you walk in. That is a power; spend it kindly.',
+      tag: 'warm',
+    },
+    {
+      body: 'The task you keep postponing grew no teeth overnight. Go collect it.',
+      tag: 'wry',
+    },
+    {
+      body: 'The day walks at a steady pace — a good day to arrive everywhere early.',
+      tag: 'grounded',
+      period: 'daily',
+    },
+    {
+      body: 'This week is a three-act play; you are somewhere in act two. Keep your lines.',
+      tag: 'wry',
+      period: 'weekly',
+    },
+    {
+      body: 'A week for harvests: gather what spring quietly planted.',
+      tag: 'warm',
+      period: 'weekly',
+    },
   ],
   reflections: [
     'What would make tonight feel like a win, exactly?',
@@ -473,6 +631,12 @@ const EN_FREE: FreePool = {
     'Which conversation gets shorter every time you postpone it?',
     "What would 'a little better' look like — not a lot, just a little?",
     'What did you do recently that your future self will quietly thank you for?',
+    'What small ceremony would make this evening feel earned?',
+    'Which flag have you planted that is due a visit?',
+    'Who deserves a letter written in your best hand?',
+    'What would you begin today if you knew it would be kept?',
+    'Which of your tools is asking to be sharpened?',
+    'Where could you be a lantern for someone this week?',
   ],
   closings: [
     { body: 'However the day goes, end it on your own terms.', tag: 'warm' },
@@ -492,6 +656,17 @@ const EN_FREE: FreePool = {
     {
       body: 'The week does not need a perfect ending — just a closed one.',
       tag: 'calm',
+      period: 'weekly',
+    },
+    { body: 'Bank the fire, bolt the door: the day is won by “enough”.', tag: 'calm' },
+    { body: 'Ride out and be somebody’s good news before supper.', tag: 'bold' },
+    { body: 'The almanac keeps no ledger tonight; neither should you.', tag: 'playful' },
+    { body: 'A stone laid today holds up a wall tomorrow. Good night, mason.', tag: 'grounded' },
+    { body: 'If the day fell short of the plan, the chronicle allows revisions.', tag: 'wry' },
+    { body: 'Close the shutters on this one gently — it meant well.', tag: 'warm', period: 'daily' },
+    {
+      body: 'The week wants a proper ending, not a perfect one. Ring for supper.',
+      tag: 'warm',
       period: 'weekly',
     },
   ],
@@ -874,6 +1049,132 @@ const RU_SIGNS_C: Record<ZodiacSignId, SignContent> = {
   },
 };
 
+/** Четвёртый сюжетный арк на знак (вариант D, 2026-10-26) — «альманах»: лёгкая архаика, образы очага, чернил и дороги, под средневековое обновление сайта. */
+const RU_SIGNS_D: Record<ZodiacSignId, SignContent> = {
+  aries: {
+    titles: ['Разжечь первый огонь', 'Час передового полка'],
+    overview:
+      'Разожгите первый огонь дня пораньше: уголёк усилия сейчас согреет все дальнейшие часы.',
+    focus:
+      'Положите единственное настоящее дело утра на стол прежде, чем соберутся другие голоса.',
+    relationships:
+      'Прямое слово, сказанное ласково, стоит десяти кривых: передайте его, пока огонь горяч.',
+    work: 'Куйте, пока горит: смелый черновик сегодня затмит осторожное молчание.',
+    growth:
+      'Будьте хозяином своего нрава, а не его лошадью: уздечка стоит дёшево, а везёт далеко.',
+    excludedOpeningTags: ['calm'],
+  },
+  taurus: {
+    titles: ['Полная кладовая', 'Медленное золото'],
+    overview:
+      'День — хорошо убранная кладовая: берите по одной полке за раз, и ничего не испортится.',
+    focus: 'Держитесь своей борозды: прямой ряд даёт урожай.',
+    relationships:
+      'Разломите хлеб с соседом: древний обычай до сих пор разносит самые тёплые вести.',
+    work: 'Ведите книгу учёта терпеливо: ровные столбцы переживут любые узоры.',
+    growth: 'Считайте то, что сберегли, а не то, что выиграли: амбар всё помнит.',
+    excludedOpeningTags: ['playful'],
+  },
+  gemini: {
+    titles: ['Дорога гонца', 'Два пера, одно письмо'],
+    overview: 'Вести сегодня летят быстро: выберите, какое письмо заслужит вашу лучшую руку.',
+    focus: 'Переверните песочные часы ради одного дела; остальное подождёт почты.',
+    relationships: 'Носите добрые вести между домами: гонца, что приносит улыбки, везде ждут.',
+    work: 'Пишите просто, запечатывайте честно: короткая грамота уходит дальше длинной.',
+    growth: 'Пусть любопытный разум обойдёт много лавок, но купит лишь в одной.',
+    excludedOpeningTags: [],
+  },
+  cancer: {
+    titles: ['Очаг хранит своих', 'Стены из доброты'],
+    overview: 'Расширьте сегодня круг дома чуть шире: то, что вы приютили, расцветёт.',
+    focus: 'Сначала наведите лад в горнице: выметенный очаг облегчает тяжёлые думы.',
+    relationships:
+      'Пошлите за тем, кто притих: поднос с тёплым хлебом открывает больше дверей, чем стук.',
+    work: 'Стерегите тихий час, как сторожат ключи от дома.',
+    growth: 'Прилив не спрашивает позволения обернуться — и вам не надо, когда час пришёл.',
+    excludedOpeningTags: ['bold'],
+  },
+  leo: {
+    titles: ['Позолоченный час', 'Знамя высоко'],
+    overview: 'Несите знамя щедро: свет, который делишь, удваивается, а не половинится.',
+    focus: 'Возьмите дело, которое увидят сделанным, и сделайте его с мастерством.',
+    relationships:
+      'Увенчайте другого честной похвалой: лавр вам ничего не стоит, а его поднимет высоко.',
+    work: 'Пусть работа будет смелой по цвету: бледные чернила — для более робких дней.',
+    growth: 'Даже лев отдыхает в полдень: передышка — часть охоты.',
+    excludedOpeningTags: ['calm'],
+  },
+  virgo: {
+    titles: ['Рука писца', 'Всякой вещи — своё место'],
+    overview:
+      'День награждает аккуратную руку: зашейте один малый шов — и вся одежда послужит дольше.',
+    focus: 'Выберите самый маленький неперевёрнутый камень и переверните его как следует.',
+    relationships: 'Предлагайте помощь закатанными рукавами, а не речами: дело и есть слово.',
+    work: 'Сверьте книгу дважды: второе чтение найдёт монету, оброненную первым.',
+    growth: 'Пусть мерой будет «сделано хорошо», а не «погублено совершенством».',
+    excludedOpeningTags: ['bold'],
+  },
+  libra: {
+    titles: ['Уравновешенные весы', 'Грамоты изящества'],
+    overview: 'Взвешивайте день мягко: весы кренятся легче всего под спокойной рукой.',
+    focus: 'Поднесите оба варианта к свече: один покажет лицо.',
+    relationships:
+      'Посредничайте в малом мире: строитель моста помнится добром в обеих деревнях.',
+    work: 'Справедливость — ремесло: одна честная сделка сегодня окупит сезон доверия.',
+    growth: 'И ваши собственные желания заслуживают места на весах.',
+    excludedOpeningTags: ['bold'],
+  },
+  scorpio: {
+    titles: ['Глубокий колодец', 'Ночное дознание'],
+    overview:
+      'Тихие воды держат самое верное отражение: гляньте вглубь и выберите одну правду для дела.',
+    focus: 'Возьмите скрытую задачу: та, что за запертой дверью, ждёт именно ваш ключ.',
+    relationships: 'Храните дружескую тайну, как ключ: под замком и никогда не ржавеет.',
+    work: 'Копайте, где земля тиха: богатая руда лежит под нехоженой тропой.',
+    growth: 'Сожгите старую обиду в сегодняшней свече: пепел ничего не весит.',
+    excludedOpeningTags: ['bold'],
+  },
+  sagittarius: {
+    titles: ['Дальний поход', 'Стрела к утру'],
+    overview: 'Направьте стрелу за плетень: дальняя дорога сегодня любит раннего путника.',
+    focus: 'Выбирайте дорогу, что расширяется, а не ту, что лишь короче.',
+    relationships: 'Позовите спутника на длинный путь: вёрсты короче, когда разделены.',
+    work: 'Изучите карту за собственным рубежом: соседнее поле учит и строителя забора.',
+    growth: 'Бронируйте переправу сейчас: решимость, как хлеб, вкусна свежей.',
+    excludedOpeningTags: ['calm'],
+  },
+  capricorn: {
+    titles: ['Терпение каменщика', 'Леса и камень'],
+    overview:
+      'Положите сегодняшний камень честно — пусть завтрашний день любуется стеной: медленная кладка переживёт бури.',
+    focus: 'Разрубите большую задачу на куски, что помещаются в повозку, и унесите первый до заката.',
+    relationships: 'Храните веру в малых делах: прийти раньше, помнить о долге, беречь слово.',
+    work: 'Чините мельничное колесо, а не шум жернова: лечите причину, а не эхо.',
+    growth: 'Отдых — это леса, а не кража у стройки: берите его указом.',
+    excludedOpeningTags: ['playful'],
+  },
+  aquarius: {
+    titles: ['Новое созвездие', 'Флюгер читает перемену'],
+    overview:
+      'Сегодня дует странный ветер, приносящий полезное: отворите окно, пока он не передумал.',
+    focus: 'Поставьте один обычай на голову и посмотрите, что выпадет из его карманов.',
+    relationships:
+      'Обменяйтесь с другом диковинами: ваш странный ключ подходит к их любопытному замку.',
+    work: 'Соберите малую машину, что делает скучную работу: всякая цеховая наука началась с такого инструмента.',
+    growth: 'Ищите общество, что наполняет вас: даже алхимики работали в компании.',
+    excludedOpeningTags: ['calm'],
+  },
+  pisces: {
+    titles: ['Компас мечтателя', 'Приливы внутреннего моря'],
+    overview: 'День говорит образами: поймайте один на бумаге — и он согласится стать настоящим.',
+    focus: 'Оставьте один час неразмеченным: в немаркированном кувшине — лучшее варенье.',
+    relationships: 'Одолжите ухо, как одалживают лодку: целиком и не считая вёсел.',
+    work: 'Начните дело с середины: начало само пришлёт весточку, когда будет готово.',
+    growth: 'Перелейте чувство в сосуд — чернила, песню или землю — и понесите легче.',
+    excludedOpeningTags: ['bold'],
+  },
+};
+
 const RU_FREE: FreePool = {
   openings: [
     {
@@ -924,6 +1225,35 @@ const RU_FREE: FreePool = {
       tag: 'wry',
       period: 'weekly',
     },
+    { body: 'Очаг горит, и горница ваша: начните там, где тепло.', tag: 'warm' },
+    { body: 'Весть от герольда: день благоволит тем, кто уже в седле.', tag: 'bold' },
+    { body: 'Драконов сегодня не обещано — только горстка вполне одолимых дел.', tag: 'playful' },
+    { body: 'Тихая страница в альманахе: читайте неспешно, действуйте мягко.', tag: 'calm' },
+    { body: 'Сапоги надеты, фонарь зажжён: дорога уважает раннего путника.', tag: 'grounded' },
+    {
+      body: 'Летопись запишет лишь то, что вы в самом деле сделаете. Выбирайте с учётом этого.',
+      tag: 'wry',
+    },
+    {
+      body: 'Чей-то день станет лучше с вашего появления. Это сила — тратьте её по-доброму.',
+      tag: 'warm',
+    },
+    { body: 'Дело, что вы всё откладываете, за ночь зубов не отросло. Сходите заберите.', tag: 'wry' },
+    {
+      body: 'День идёт шагом — хороший день, чтобы везде приходить раньше.',
+      tag: 'grounded',
+      period: 'daily',
+    },
+    {
+      body: 'Эта неделя — пьеса в трёх действиях; вы где-то во втором. Держите текст.',
+      tag: 'wry',
+      period: 'weekly',
+    },
+    {
+      body: 'Неделя сбора урожая: собирайте то, что весна тихо посадила.',
+      tag: 'warm',
+      period: 'weekly',
+    },
   ],
   reflections: [
     'Что сделает сегодняшний вечер удачным — если честно?',
@@ -936,6 +1266,12 @@ const RU_FREE: FreePool = {
     'Какой разговор становится короче с каждым переносом на завтра?',
     'Как выглядит «чуть лучше» — не сильно, а именно чуть?',
     'За что завтра вы тихо скажете себе спасибо?',
+    'Какой маленький ритуал сделает этот вечер заслуженным?',
+    'Какое знамя вы посадили, на которое давно не навещали?',
+    'Кому заслужено письмо, написанное вашей лучшей рукой?',
+    'Что бы вы начали сегодня, зная, что это будет сохранено?',
+    'Какой из ваших инструментов просит заточки?',
+    'Где вы могли бы стать чьим-то фонарём на этой неделе?',
   ],
   closings: [
     { body: 'Как бы ни прошёл день, завершите его на своих условиях.', tag: 'warm' },
@@ -955,6 +1291,17 @@ const RU_FREE: FreePool = {
     {
       body: 'Неделе не нужен идеальный финал — достаточно закрытого.',
       tag: 'calm',
+      period: 'weekly',
+    },
+    { body: 'Прикройте огонь, заприте дверь: день выигран «достаточно».', tag: 'calm' },
+    { body: 'Выезжайте и станьте чьей-то доброй вестью до ужина.', tag: 'bold' },
+    { body: 'Альманах сегодня не ведёт книги учёта — и вам не надо.', tag: 'playful' },
+    { body: 'Камень, положенный сегодня, держит стену завтра. Спокойной ночи, каменщик.', tag: 'grounded' },
+    { body: 'Если день вышел короче плана — летопись допускает правки.', tag: 'wry' },
+    { body: 'Закройте ставни этого дня мягко: он старался.', tag: 'warm', period: 'daily' },
+    {
+      body: 'Неделе нужен достойный финал, а не идеальный. Зовите к ужину.',
+      tag: 'warm',
       period: 'weekly',
     },
   ],
@@ -997,19 +1344,16 @@ function block(
 
 function buildLocaleBlocks(
   locale: Locale,
-  signsA: Record<ZodiacSignId, SignContent>,
-  signsB: Record<ZodiacSignId, SignContent>,
-  signsC: Record<ZodiacSignId, SignContent>,
+  signArcs: Array<Record<ZodiacSignId, SignContent>>,
   free: FreePool,
 ): ContentBlock[] {
   const blocks: ContentBlock[] = [];
   const prefix = locale === 'en' ? 'en' : 'ru';
-  const arcNumbers = { a: 1, b: 2, c: 3 } as const;
-  const arcs: Array<[Record<ZodiacSignId, SignContent>, 'a' | 'b' | 'c']> = [
-    [signsA, 'a'],
-    [signsB, 'b'],
-    [signsC, 'c'],
-  ];
+  const arcNumbers = { a: 1, b: 2, c: 3, d: 4 } as const;
+  const arcLetters = ['a', 'b', 'c', 'd'] as const;
+  const arcs: Array<[Record<ZodiacSignId, SignContent>, 'a' | 'b' | 'c' | 'd']> = signArcs.map(
+    (signs, i) => [signs, arcLetters[i]],
+  );
 
   for (const [signs, arcLetter] of arcs) {
     for (const signId of ZODIAC_SIGN_IDS) {
@@ -1127,21 +1471,13 @@ function main(): void {
   const outDir = path.join(process.cwd(), 'fixtures', 'content');
   fs.mkdirSync(outDir, { recursive: true });
 
-  const locales: Array<
-    [
-      Locale,
-      Record<ZodiacSignId, SignContent>,
-      Record<ZodiacSignId, SignContent>,
-      Record<ZodiacSignId, SignContent>,
-      FreePool,
-    ]
-  > = [
-    ['en', EN_SIGNS, EN_SIGNS_B, EN_SIGNS_C, EN_FREE],
-    ['ru', RU_SIGNS, RU_SIGNS_B, RU_SIGNS_C, RU_FREE],
+  const locales: Array<[Locale, Array<Record<ZodiacSignId, SignContent>>, FreePool]> = [
+    ['en', [EN_SIGNS, EN_SIGNS_B, EN_SIGNS_C, EN_SIGNS_D], EN_FREE],
+    ['ru', [RU_SIGNS, RU_SIGNS_B, RU_SIGNS_C, RU_SIGNS_D], RU_FREE],
   ];
 
-  for (const [locale, signsA, signsB, signsC, free] of locales) {
-    const blocks = buildLocaleBlocks(locale, signsA, signsB, signsC, free);
+  for (const [locale, signArcs, free] of locales) {
+    const blocks = buildLocaleBlocks(locale, signArcs, free);
     for (const b of blocks) {
       const check = contentBlockSchema.safeParse(b);
       if (!check.success) {

@@ -11,7 +11,7 @@ export async function SiteHeader() {
       </a>
       <div className="site-header-inner">
         <Link href="/" className="site-brand">
-          ✷ AstralCanvas
+          <span aria-hidden="true">❦</span> AstralCanvas
         </Link>
         <nav className="site-nav" aria-label={t('home')}>
           <Link href="/">{t('home')}</Link>

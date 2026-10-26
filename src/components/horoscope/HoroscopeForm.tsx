@@ -132,92 +132,100 @@ export function HoroscopeForm() {
   const selectedSign = ZODIAC_SIGNS.find((s) => s.id === signId)!;
 
   return (
-    <section className={styles.form} aria-busy={busy}>
-      <fieldset className={styles.group}>
-        <legend className="fieldset-label">{t('home.form.signLabel')}</legend>
-        <div className={styles.signGrid} role="group" aria-label={t('home.form.signLabel')}>
-          {ZODIAC_SIGNS.map((sign) => (
-            <button
-              key={sign.id}
-              type="button"
-              className={`${styles.signButton} ${sign.id === signId ? styles.signButtonActive : ''}`}
-              aria-pressed={sign.id === signId}
-              onClick={() => {
-                setSignId(sign.id);
-                syncUrl({ sign: sign.id, period, theme });
-              }}
-            >
-              <span className={styles.signSymbol} aria-hidden="true">
-                {sign.symbol}
-              </span>
-              <span className={styles.signName}>{t(`zodiac.${sign.id}.name`)}</span>
-            </button>
-          ))}
+    <div className={styles.wrap}>
+      <section className={styles.form} aria-busy={busy}>
+        <fieldset className={styles.group}>
+          <legend className="fieldset-label">{t('home.form.signLabel')}</legend>
+          <div className={styles.signGrid} role="group" aria-label={t('home.form.signLabel')}>
+            {ZODIAC_SIGNS.map((sign) => (
+              <button
+                key={sign.id}
+                type="button"
+                className={`${styles.signButton} ${sign.id === signId ? styles.signButtonActive : ''}`}
+                aria-pressed={sign.id === signId}
+                onClick={() => {
+                  setSignId(sign.id);
+                  syncUrl({ sign: sign.id, period, theme });
+                }}
+              >
+                <span className={`${styles.signSymbol} zodiac-symbol`} aria-hidden="true">
+                  {sign.symbol}
+                </span>
+                <span className={styles.signName}>{t(`zodiac.${sign.id}.name`)}</span>
+              </button>
+            ))}
+          </div>
+          <p className="visually-hidden" aria-live="polite">
+            {t('home.form.signSelected', { name: t(`zodiac.${selectedSign.id}.name`) })}
+          </p>
+        </fieldset>
+
+        <div className={styles.row}>
+          <fieldset className={styles.group}>
+            <legend className="fieldset-label">{t('home.form.periodLabel')}</legend>
+            <div className={styles.segmented} role="group" aria-label={t('home.form.periodLabel')}>
+              {HOROSCOPE_PERIODS.map((value) => (
+                <button
+                  key={value}
+                  type="button"
+                  className={value === period ? styles.segmentActive : ''}
+                  aria-pressed={value === period}
+                  onClick={() => {
+                    setPeriod(value);
+                    syncUrl({ sign: signId, period: value, theme });
+                  }}
+                >
+                  {t(`periods.${value}`)}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset className={styles.group}>
+            <legend className="fieldset-label">{t('home.form.themeLabel')}</legend>
+            <div className={styles.segmented} role="group" aria-label={t('home.form.themeLabel')}>
+              {HOROSCOPE_THEMES.map((value) => (
+                <button
+                  key={value}
+                  type="button"
+                  className={value === theme ? styles.segmentActive : ''}
+                  aria-pressed={value === theme}
+                  onClick={() => {
+                    setTheme(value);
+                    syncUrl({ sign: signId, period, theme: value });
+                  }}
+                >
+                  {t(`themes.${value}`)}
+                </button>
+              ))}
+            </div>
+          </fieldset>
         </div>
-        <p className="visually-hidden" aria-live="polite">
-          {t('home.form.signSelected', { name: t(`zodiac.${selectedSign.id}.name`) })}
-        </p>
-      </fieldset>
 
-      <div className={styles.row}>
-        <fieldset className={styles.group}>
-          <legend className="fieldset-label">{t('home.form.periodLabel')}</legend>
-          <div className={styles.segmented} role="group" aria-label={t('home.form.periodLabel')}>
-            {HOROSCOPE_PERIODS.map((value) => (
-              <button
-                key={value}
-                type="button"
-                className={value === period ? styles.segmentActive : ''}
-                aria-pressed={value === period}
-                onClick={() => {
-                  setPeriod(value);
-                  syncUrl({ sign: signId, period: value, theme });
-                }}
-              >
-                {t(`periods.${value}`)}
+        {/* The reading refreshes automatically on selection change (owner
+            request, 2026-10-25: no manual refresh button); errors keep a retry. */}
+
+        <div aria-live="polite">
+          {state.kind === 'loading' && <p className={styles.loading}>{t('home.form.loading')}</p>}
+          {state.kind === 'error' && (
+            <div className="error-box" role="alert">
+              <p>{t(`errors.${state.code}`)}</p>
+              <button type="button" onClick={requestHoroscope}>
+                {t('errors.retry')}
               </button>
-            ))}
-          </div>
-        </fieldset>
+            </div>
+          )}
+        </div>
+      </section>
 
-        <fieldset className={styles.group}>
-          <legend className="fieldset-label">{t('home.form.themeLabel')}</legend>
-          <div className={styles.segmented} role="group" aria-label={t('home.form.themeLabel')}>
-            {HOROSCOPE_THEMES.map((value) => (
-              <button
-                key={value}
-                type="button"
-                className={value === theme ? styles.segmentActive : ''}
-                aria-pressed={value === theme}
-                onClick={() => {
-                  setTheme(value);
-                  syncUrl({ sign: signId, period, theme: value });
-                }}
-              >
-                {t(`themes.${value}`)}
-              </button>
-            ))}
-          </div>
-        </fieldset>
-      </div>
-
-      {/* The reading refreshes automatically on selection change (owner
-          request, 2026-10-25: no manual refresh button); errors keep a retry. */}
-
-      <div aria-live="polite">
-        {state.kind === 'loading' && <p className={styles.loading}>{t('home.form.loading')}</p>}
-        {state.kind === 'error' && (
-          <div className="error-box" role="alert">
-            <p>{t(`errors.${state.code}`)}</p>
-            <button type="button" onClick={requestHoroscope}>
-              {t('errors.retry')}
-            </button>
-          </div>
-        )}
-        {state.kind === 'success' && (
+      {/* The torn parchment leaf lives outside the form panel: it is meant to
+          read as a loose sheet lying on the dark desk, not a panel inside a
+          panel (medieval restyle, 2026-10-26). */}
+      {state.kind === 'success' && (
+        <div aria-live="polite">
           <HoroscopeResultView result={state.payload.result} repeated={state.payload.repeated} />
-        )}
-      </div>
-    </section>
+        </div>
+      )}
+    </div>
   );
 }

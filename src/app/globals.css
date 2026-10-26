@@ -1,21 +1,34 @@
-/* AstralCanvas global styles — dark celestial theme, CSS custom properties. */
+/* AstralCanvas global styles — medieval scriptorium theme: candlelit dark
+   hall, parchment panels, sepia ink, vermilion rubrication, gilded accents. */
 
 :root {
-  --bg: #0b0e1a;
-  --bg-elevated: #141a2e;
-  --bg-hover: #1b2340;
-  --ink: #e8ecf8;
-  --ink-muted: #9aa3c0;
-  --accent: #8b7cf6;
-  --accent-soft: rgba(139, 124, 246, 0.16);
-  --gold: #f0c987;
-  --amber-bg: rgba(240, 201, 135, 0.08);
-  --amber-border: rgba(240, 201, 135, 0.35);
-  --danger: #ff8f8f;
-  --border: rgba(232, 236, 248, 0.12);
-  --radius: 12px;
-  --radius-sm: 8px;
-  --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  /* The night hall around the parchment */
+  --bg: #171008;
+  --bg-elevated: #ecdfbf; /* parchment panel */
+  --bg-hover: #e2d2a9;
+  --parchment-bright: #f3e8ca;
+
+  /* Iron-gall ink on parchment */
+  --ink: #2c2014;
+  --ink-muted: #6d5936;
+  /* Parchment-toned text for elements sitting on the dark background */
+  --ink-light: #d9c9a2;
+  --ink-light-muted: #a5916a;
+
+  --accent: #8f3b2c; /* vermilion, used for rubricated headings and links */
+  --accent-soft: rgba(143, 59, 44, 0.14);
+  --gold: #a8802f; /* gilded capitals */
+  --flame: #e8b04b; /* candle flame highlight */
+  --amber-bg: rgba(232, 176, 75, 0.09);
+  --amber-border: rgba(232, 176, 75, 0.4);
+  --danger: #8f2f2f;
+
+  /* Ink rules on parchment / pale rules on wood */
+  --border: rgba(64, 47, 24, 0.45);
+  --border-dark: rgba(217, 201, 162, 0.22);
+  --radius: 4px;
+  --radius-sm: 3px;
+  --shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -29,30 +42,24 @@ html {
 body {
   margin: 0;
   min-height: 100dvh;
-  color: var(--ink);
-  font-family:
-    system-ui,
-    -apple-system,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  line-height: 1.6;
+  color: var(--ink-light);
+  font-family: var(--font-forum), 'Palatino Linotype', Palatino, Georgia, serif;
+  line-height: 1.65;
   background:
-    radial-gradient(1200px 600px at 85% -10%, rgba(139, 124, 246, 0.14), transparent 60%),
-    radial-gradient(900px 500px at -10% 20%, rgba(240, 201, 135, 0.07), transparent 55%), var(--bg);
+    radial-gradient(1100px 500px at 50% 115%, rgba(232, 150, 60, 0.1), transparent 65%),
+    radial-gradient(900px 480px at 88% -12%, rgba(232, 176, 75, 0.07), transparent 60%),
+    radial-gradient(700px 420px at 4% 30%, rgba(143, 59, 44, 0.06), transparent 55%), var(--bg);
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
 }
 
 a {
-  color: var(--ink);
+  color: var(--ink-light);
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--flame);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -69,6 +76,13 @@ a {
   border: 0;
 }
 
+/* Zodiac glyphs must read as ink symbols, never as colored platform emoji —
+   force a symbols font everywhere a sign glyph is displayed. */
+.zodiac-symbol {
+  font-family: 'Segoe UI Symbol', 'Noto Sans Symbols 2', 'DejaVu Sans', serif;
+  font-variant-emoji: text;
+}
+
 .page-main {
   flex: 1;
   width: 100%;
@@ -82,8 +96,8 @@ a {
   top: 0;
   z-index: 10;
   backdrop-filter: blur(10px);
-  background: rgba(11, 14, 26, 0.75);
-  border-bottom: 1px solid var(--border);
+  background: rgba(23, 16, 8, 0.82);
+  border-bottom: 1px solid var(--border-dark);
 }
 
 .site-header-inner {
@@ -97,12 +111,13 @@ a {
 }
 
 .site-brand {
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-weight: 400;
+  letter-spacing: 0.06em;
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: var(--flame);
 }
 
 .site-nav {
@@ -114,20 +129,21 @@ a {
 
 .site-nav a {
   text-decoration: none;
-  color: var(--ink-muted);
+  color: var(--ink-light-muted);
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius-sm);
+  letter-spacing: 0.03em;
 }
 
 .site-nav a:hover {
-  color: var(--ink);
-  background: var(--bg-hover);
+  color: var(--flame);
+  background: rgba(232, 176, 75, 0.08);
 }
 
 .site-footer {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border-dark);
   padding: 1.25rem;
-  color: var(--ink-muted);
+  color: var(--ink-light-muted);
   font-size: 0.85rem;
 }
 
@@ -144,7 +160,7 @@ a {
   position: absolute;
   left: -999px;
   top: 0;
-  background: var(--bg-elevated);
+  background: var(--parchment-bright);
   color: var(--ink);
   padding: 0.5rem 1rem;
   border-radius: 0 0 var(--radius-sm) 0;
@@ -157,11 +173,20 @@ a {
 
 /* Shared bits reused across modules */
 
+/* A parchment leaf: hand-cut irregular corners, double ink rule, warm inner
+   stain — the base for every panel on the site. */
 .panel {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background:
+    radial-gradient(120% 90% at 20% 0%, rgba(255, 250, 230, 0.5), transparent 55%),
+    var(--bg-elevated);
+  border: 1px solid rgba(64, 47, 24, 0.55);
+  border-radius: 5px 12px 4px 10px / 10px 4px 12px 5px;
+  box-shadow:
+    inset 0 0 0 1px rgba(64, 47, 24, 0.18),
+    inset 0 0 26px rgba(140, 104, 44, 0.16),
+    var(--shadow);
   padding: 1.25rem;
+  color: var(--ink);
 }
 
 .stack {
@@ -178,11 +203,11 @@ a {
   border-radius: var(--radius-sm);
   padding: 0.75rem 1rem;
   font-size: 0.85rem;
-  color: var(--ink-muted);
+  color: var(--ink-light-muted);
 }
 
 .ai-notice strong {
-  color: var(--gold);
+  color: var(--flame);
   display: block;
   margin-bottom: 0.25rem;
 }
@@ -198,27 +223,36 @@ button {
   font: inherit;
 }
 
+select {
+  background: var(--parchment-bright);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.5rem;
+}
+
 .fieldset-label {
   display: block;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12em;
   color: var(--ink-muted);
   margin-bottom: 0.5rem;
 }
 
 .error-box {
-  background: rgba(255, 143, 143, 0.08);
-  border: 1px solid rgba(255, 143, 143, 0.35);
+  background: rgba(143, 47, 47, 0.1);
+  border: 1px solid rgba(143, 47, 47, 0.5);
   color: var(--danger);
   border-radius: var(--radius-sm);
   padding: 0.75rem 1rem;
 }
 
 .info-box {
-  background: var(--accent-soft);
-  border: 1px solid var(--accent);
+  background: rgba(62, 90, 143, 0.1);
+  border: 1px solid rgba(62, 90, 143, 0.45);
+  color: #35507e;
   border-radius: var(--radius-sm);
   padding: 0.75rem 1rem;
   font-size: 0.9rem;
@@ -232,9 +266,11 @@ button {
 
 .hero h1 {
   margin: 0 0 0.5rem;
-  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 400;
   line-height: 1.2;
-  background: linear-gradient(120deg, var(--ink), var(--accent) 60%, var(--gold));
+  letter-spacing: 0.02em;
+  background: linear-gradient(120deg, var(--parchment-bright), var(--flame) 85%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -242,13 +278,16 @@ button {
 
 .hero-lead {
   margin: 0;
-  color: var(--ink-muted);
+  color: var(--ink-light-muted);
   max-width: 60ch;
 }
 
 .panel h2 {
   margin: 0 0 0.5rem;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--accent); /* rubricated headings, like a manuscript */
 }
 
 .panel p {
@@ -259,7 +298,6 @@ button {
 .text-link {
   color: var(--accent);
   text-decoration: none;
-  font-weight: 600;
 }
 
 .text-link:hover {

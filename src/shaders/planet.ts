@@ -1,12 +1,13 @@
 /**
- * Shader A — planet surface + atmosphere (spec FR-06, docs/shaders.md).
+ * Shader A — drawn planet: ink engraving on parchment (spec FR-06,
+ * docs/shaders.md; medieval restyle 2026-10-26).
  *
  * Original GLSL. The vertex stage transforms the sphere and passes
- * object-space position and world-space normal as varyings; the fragment
- * stage builds a stylized surface from two octaves-of-value-noise bands
- * (fbm, octave count selected by the uQuality uniform — no recompiles),
- * a two-stop palette gradient, a single stylized light term, and an optional
- * fresnel rim for atmospheric glow (disabled at Low quality via uRim).
+ * object-space position and world-space normal as varyings. The fragment
+ * stage styles the sphere like an etched plate in an old astronomical
+ * manuscript: a paper-colored ground, two crossed hatch fields in stable
+ * object space whose ink density follows the light, a hand-drawn silhouette
+ * outline, and a small gilded glint (gold leaf catching candlelight).
  *
  * Everything is procedural — no textures are sampled.
  */
@@ -32,11 +33,11 @@ varying vec3 vObjPos;
 varying vec3 vWorldNormal;
 varying vec3 vViewDir;
 
-uniform float uTime;            // elapsed seconds (drives surface flow)
-uniform vec3 uColorA;           // palette stop 1 (bands/lowlands)
-uniform vec3 uColorB;           // palette stop 2 (highlands)
-uniform float uGlowIntensity;   // fresnel rim strength (FR-07 glow slider)
-uniform float uNoiseScale;      // spatial frequency of the surface bands
+uniform float uTime;            // elapsed seconds (drives slow plate drift)
+uniform vec3 uPaper;            // ground color of this body's plate
+uniform vec3 uInk;              // ink color of this body's drawing
+uniform float uGlowIntensity;   // gilded glint strength (FR-07 glow slider)
+uniform float uNoiseScale;      // spatial frequency of the surface mottling
 uniform float uQuality;         // 1 | 2 | 4 — fbm octave count
 uniform float uRim;             // 0.0 at Low quality, 1.0 otherwise
 uniform float uEffects;         // global effects intensity (FR-07 slider)
@@ -81,26 +82,50 @@ float fbm(vec3 p) {
   return sum;
 }
 
+// One field of hand-drawn hatching: ink lines along a slightly skewed
+// direction, returned as 0 (paper) .. 1 (full ink on the line).
+float hatchField(vec2 p, float freq, float width) {
+  float v = fract(p.x * freq + p.y * 0.13);
+  float d = abs(v - 0.5) / freq;
+  return smoothstep(width, 0.0, d);
+}
+
 void main() {
-  // Surface flow: the noise field drifts slowly along one axis. Decorative
+  vec3 N = normalize(vWorldNormal);
+  vec3 V = normalize(vViewDir);
+
+  // Surface flow: the mottling drifts slowly along one axis. Decorative
   // motion only (spec §8.4) — nothing here simulates rotation or weather.
   vec3 samplePos = vObjPos * uNoiseScale + vec3(uTime * 0.03, 0.0, uTime * 0.015);
-
   float n = fbm(samplePos);
-  // Stretch the noise into latitude-ish bands for a gas-giant look.
   float bands = 0.5 + 0.5 * sin(vObjPos.y * 6.0 + n * 5.0);
   float surface = clamp(n * 0.75 + bands * 0.35, 0.0, 1.0);
 
-  vec3 color = mix(uColorA, uColorB, smoothstep(0.15, 0.85, surface));
-
-  // One stylized light: fixed direction, soft wrap for a painterly look.
+  // One stylized light, fixed direction, soft wrap.
   vec3 lightDir = normalize(vec3(0.55, 0.65, 0.52));
-  float diff = clamp(dot(normalize(vWorldNormal), lightDir) * 0.6 + 0.45, 0.0, 1.0);
-  color *= diff;
+  float diff = clamp(dot(N, lightDir) * 0.6 + 0.45, 0.0, 1.0);
 
-  // Fresnel rim / atmosphere: pow(1 - N·V, p), dropped entirely at Low.
-  float rim = pow(1.0 - clamp(dot(normalize(vWorldNormal), normalize(vViewDir)), 0.0, 1.0), 2.6);
-  color += uColorB * rim * uRim * uGlowIntensity * uEffects * 1.6;
+  // Engraving: hatching in stable object space (slightly warped for a
+  // hand-drawn wobble); darker tone opens the crossed second field.
+  vec2 hp = vObjPos.xy * 3.0 + n * 0.6;
+  float tone = pow(1.0 - diff, 1.4);
+  float h1 = hatchField(hp, 9.0, 0.014 + (1.0 - diff) * 0.006);
+  float h2 = hatchField(hp.yx + 13.7, 11.0, 0.011);
+  float hatch = max(h1, h2 * smoothstep(0.2, 0.7, tone));
+  float ink = clamp(tone * 1.3 - 0.18, 0.0, 1.0);
+
+  // Silhouette outline: the drawn pen ring around the body.
+  float rim = pow(1.0 - clamp(dot(N, V), 0.0, 1.0), 1.6);
+  float outline = smoothstep(0.5, 0.92, rim) * mix(0.6, 1.0, uRim);
+
+  float inkAmount = clamp(hatch * ink + outline * 0.95 + surface * 0.15, 0.0, 1.0);
+  vec3 color = mix(uPaper, uInk, inkAmount);
+
+  // Gilded glint: a small tight highlight, gold leaf catching candlelight —
+  // kept subtle so the engraved hatching stays the dominant read.
+  vec3 H = normalize(lightDir + V);
+  float spec = pow(clamp(dot(N, H), 0.0, 1.0), 64.0);
+  color += vec3(0.55, 0.38, 0.10) * spec * uEffects * uGlowIntensity * 0.45;
 
   gl_FragColor = vec4(color, 1.0);
 }

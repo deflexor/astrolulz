@@ -1,18 +1,24 @@
 'use client';
 
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useRef, useState, useEffect } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { buildShareText } from '@/lib/content/shareText';
 import { getZodiacSign, type ZodiacSignId } from '@/lib/astrology/zodiacSigns';
 import type { HoroscopeResult as HoroscopeResultData } from '@/lib/content/types';
+import type { FirePaperHandle } from '@/lib/parchment/createFirePaperCanvas';
 import styles from './HoroscopeResult.module.css';
 
 type CopyState = 'idle' | 'copied' | 'manual';
+type PaperState = 'pending' | 'ready' | 'fallback';
 
 /**
  * Renders an assembled horoscope: title, meta line, sections, and reflection
  * prompt. Copied/share text keeps the localized AI notice (spec FR-04,
  * FR-10); the visible disclosure lives on the About page.
+ *
+ * The leaf itself is a WebGL shader (fire-lit ragged parchment, owner request
+ * 2026-10-26), dynamically imported so it and its GLSL stay out of the
+ * initial bundle; if WebGL cannot start, the CSS parchment fallback stands in.
  */
 export function HoroscopeResultView({
   result,
@@ -24,7 +30,27 @@ export function HoroscopeResultView({
   const t = useTranslations();
   const locale = useLocale();
   const [copyState, setCopyState] = useState<CopyState>('idle');
+  const [paperState, setPaperState] = useState<PaperState>('pending');
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    let disposed = false;
+    let handle: FirePaperHandle | null = null;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    (async () => {
+      const { createFirePaperCanvas } = await import('@/lib/parchment/createFirePaperCanvas');
+      if (disposed || !canvasRef.current) return;
+      handle = createFirePaperCanvas(canvasRef.current, { prefersReducedMotion: prefersReduced });
+      setPaperState(handle ? 'ready' : 'fallback');
+    })().catch(() => {
+      if (!disposed) setPaperState('fallback');
+    });
+    return () => {
+      disposed = true;
+      handle?.dispose();
+    };
+  }, []);
 
   const signName = t(`zodiac.${result.signId}.name`);
   const periodLabel = t(`periods.${result.period}`);
@@ -69,9 +95,13 @@ export function HoroscopeResultView({
   };
 
   return (
-    <article className={styles.card} aria-label={signName}>
+    <article
+      className={`${styles.card} ${paperState === 'ready' ? styles.cardReady : ''}`}
+      aria-label={signName}
+    >
+      <canvas ref={canvasRef} className={styles.canvas} aria-hidden="true" />
       <header className={styles.header}>
-        <span className={styles.symbol} aria-hidden="true">
+        <span className={`${styles.symbol} zodiac-symbol`} aria-hidden="true">
           {sign.symbol}
         </span>
         <div>

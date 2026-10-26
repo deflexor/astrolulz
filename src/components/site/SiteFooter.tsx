@@ -6,7 +6,9 @@ export async function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="site-footer-inner">
-        <span>{tFooter('projectInfo')}</span>
+        <span>
+          <span aria-hidden="true">✦</span> {tFooter('projectInfo')}
+        </span>
         <Link href="/about">{tNav('about')}</Link>
       </div>
     </footer>

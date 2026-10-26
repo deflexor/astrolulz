@@ -12,6 +12,7 @@ import { planetFragmentSource, planetVertexSource } from '@/shaders/planet';
 import { starFragmentSource, starVertexSource } from '@/shaders/stars';
 import { glowFragmentSource, glowVertexSource } from '@/shaders/glow';
 import { meteorFragmentSource, meteorVertexSource } from '@/shaders/meteor';
+import { parchmentFragmentSource, parchmentVertexSource } from '@/shaders/paper';
 
 /**
  * Browser-only zodiac scene engine (spec §5.2, FR-05..08, §12–13).
@@ -77,24 +78,25 @@ const STATS_INTERVAL_MS = 500;
 const METEOR_POOL_SIZE = 3;
 
 /**
- * Per-sign accent colors (owner request, 2026-10-24: "different colors").
- * Element families share a hue region — fire warm, earth moss, air sky,
- * water teal — with per-sign variation so the wheel reads by color, not
- * just by position. Decorative only (spec §8.4).
+ * Per-sign pigment colors (owner request, 2026-10-24: "different colors";
+ * medieval restyle 2026-10-26: the neon palette became manuscript pigments —
+ * vermilion, azurite, terre verte, indigo, and friends). Element families
+ * share a pigment region so the wheel still reads by color. Decorative only
+ * (spec §8.4).
  */
 const SIGN_COLORS: Record<ZodiacSignId, number> = {
-  aries: 0xff8a5c,
-  taurus: 0x8fd694,
-  gemini: 0x9ad0ff,
-  cancer: 0x7fb4ff,
-  leo: 0xffc44d,
-  virgo: 0xb5d99c,
-  libra: 0xcbb2ff,
-  scorpio: 0xb57bee,
-  sagittarius: 0xff9e6b,
-  capricorn: 0xd9b382,
-  aquarius: 0x7ee8e0,
-  pisces: 0x6fd6e8,
+  aries: 0xb4432c, // vermilion
+  taurus: 0x6f7a4a, // terre verte
+  gemini: 0x4c6c9c, // azurite
+  cancer: 0x46618f, // indigo
+  leo: 0xc05a2e, // minium (red lead)
+  virgo: 0x77743e, // olive earth
+  libra: 0x5c7aa3, // pale azurite
+  scorpio: 0x6d4a6e, // plum ink
+  sagittarius: 0xa8543a, // sanguine
+  capricorn: 0x7d5c33, // raw umber
+  aquarius: 0x4e8a80, // verdigris
+  pisces: 0x4a7f8f, // blue-green copper
 };
 
 /**
@@ -109,7 +111,9 @@ interface PlanetSpec {
   size: number;
   orbitSpeed: number;
   phase: number;
+  /** Ground color of this body's etched plate (parchment tint). */
   colorA: number;
+  /** Ink color of this body's drawing. */
   colorB: number;
   noiseScale: number;
 }
@@ -120,8 +124,8 @@ const PLANETS: readonly PlanetSpec[] = [
     size: 1.05,
     orbitSpeed: 0,
     phase: 0,
-    colorA: 0x7a3f10,
-    colorB: 0xffd27d,
+    colorA: 0xeadfbc, // sunlit vellum plate
+    colorB: 0x4a2c10, // dark umber ink
     noiseScale: 2.6,
   }, // sun
   {
@@ -129,8 +133,8 @@ const PLANETS: readonly PlanetSpec[] = [
     size: 0.32,
     orbitSpeed: 0.42,
     phase: 0.8,
-    colorA: 0x2c3350,
-    colorB: 0xd9e4ff,
+    colorA: 0xf2ead0, // pale moon-vellum
+    colorB: 0x3c4258, // slate ink
     noiseScale: 4.0,
   }, // moon
   {
@@ -138,8 +142,8 @@ const PLANETS: readonly PlanetSpec[] = [
     size: 0.3,
     orbitSpeed: 0.3,
     phase: 2.4,
-    colorA: 0x3d3630,
-    colorB: 0xcbb59a,
+    colorA: 0xeedfb4,
+    colorB: 0x4a4038, // grey-brown ink
     noiseScale: 5.0,
   }, // mercury
   {
@@ -147,8 +151,8 @@ const PLANETS: readonly PlanetSpec[] = [
     size: 0.46,
     orbitSpeed: 0.21,
     phase: 4.1,
-    colorA: 0x6d4a35,
-    colorB: 0xffe6c4,
+    colorA: 0xf2e2b0,
+    colorB: 0x6d4a1e, // golden-brown ink
     noiseScale: 3.2,
   }, // venus
   {
@@ -156,8 +160,8 @@ const PLANETS: readonly PlanetSpec[] = [
     size: 0.4,
     orbitSpeed: 0.14,
     phase: 5.5,
-    colorA: 0x5c1f14,
-    colorB: 0xff9d6e,
+    colorA: 0xf0dcae,
+    colorB: 0x7c3a20, // red-chalk ink
     noiseScale: 3.8,
   }, // mars
 ];
@@ -204,7 +208,7 @@ export function createZodiacScene(
     alpha: true,
     powerPreference: 'high-performance',
   });
-  renderer.setClearColor(0x000000, 0);
+  renderer.setClearColor(0xeaddb6, 1); // vellum — matches the page parchment
   container.appendChild(renderer.domElement);
   renderer.domElement.style.width = '100%';
   renderer.domElement.style.height = '100%';
@@ -219,6 +223,23 @@ export function createZodiacScene(
   // bottom glyph clears the canvas edge with margin.
   camera.lookAt(0, -0.45, 0);
 
+  // --- parchment sheet: camera-independent background quad -------------------
+  const bgMaterial = new THREE.ShaderMaterial({
+    vertexShader: parchmentVertexSource,
+    fragmentShader: parchmentFragmentSource,
+    uniforms: {
+      uTime: { value: 0 },
+      uAspect: { value: 1 },
+      uEffects: { value: CONTROL_DEFAULTS.effectsIntensity },
+    },
+    depthTest: false,
+    depthWrite: false,
+  });
+  const bgQuad = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), bgMaterial);
+  bgQuad.renderOrder = -1;
+  bgQuad.frustumCulled = false;
+  scene.add(bgQuad);
+
   // --- zodiac wheel: ring, glyphs -------------------------------------------
   const wheel = new THREE.Group();
   wheel.position.y = 0.55;
@@ -231,13 +252,13 @@ export function createZodiacScene(
     }),
   );
   const ringMaterial = new THREE.LineBasicMaterial({
-    color: 0x8b7cf6,
+    color: 0x4a3820, // iron-gall ink rule
     transparent: true,
-    opacity: 0.4,
+    opacity: 0.5,
   });
   wheel.add(new THREE.Line(ringGeometry, ringMaterial));
 
-  const glyphColorSelected = new THREE.Color(0xf0c987);
+  const glyphColorSelected = new THREE.Color(0xc9a227); // gilded gold leaf
 
   const glowGeometry = new THREE.PlaneGeometry(2.4, 2.4);
   const glyphGlowMaterials: THREE.ShaderMaterial[] = [];
@@ -262,7 +283,9 @@ export function createZodiacScene(
       },
       transparent: true,
       depthWrite: false,
-      blending: THREE.AdditiveBlending,
+      // Pigment wash: normal transparency stains the parchment; additive
+      // blending would bleach it toward white.
+      blending: THREE.NormalBlending,
     });
     glyphGlowMaterials.push(glowMaterial);
     glowBase.push(1.5);
@@ -301,8 +324,8 @@ export function createZodiacScene(
       fragmentShader: planetFragmentSource,
       uniforms: {
         uTime: { value: 0 },
-        uColorA: { value: new THREE.Color(spec.colorA) },
-        uColorB: { value: new THREE.Color(spec.colorB) },
+        uPaper: { value: new THREE.Color(spec.colorA) },
+        uInk: { value: new THREE.Color(spec.colorB) },
         uGlowIntensity: { value: CONTROL_DEFAULTS.glowIntensity },
         uNoiseScale: { value: spec.noiseScale },
         uQuality: { value: 2 },
@@ -324,9 +347,9 @@ export function createZodiacScene(
       return new THREE.Vector3(Math.cos(a) * spec.orbitRadius, 0, Math.sin(a) * spec.orbitRadius);
     });
     const material = new THREE.LineBasicMaterial({
-      color: 0x9aa3c0,
+      color: 0x5a4830, // drawn orbit, lighter ink
       transparent: true,
-      opacity: 0.18,
+      opacity: 0.3,
     });
     orbitMaterials.push(material);
     wheel.add(new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(points), material));
@@ -365,7 +388,7 @@ export function createZodiacScene(
     },
     transparent: true,
     depthWrite: false,
-    blending: THREE.AdditiveBlending,
+    blending: THREE.NormalBlending, // gilded dots, not lights
   });
   const stars = new THREE.Points(starGeometry, starMaterial);
   scene.add(stars);
@@ -387,12 +410,12 @@ export function createZodiacScene(
       vertexShader: meteorVertexSource,
       fragmentShader: meteorFragmentSource,
       uniforms: {
-        uColor: { value: new THREE.Color(0xfff2cf) },
+        uColor: { value: new THREE.Color(0x4a3320) }, // sepia drawing ink
         uFade: { value: 0 },
       },
       transparent: true,
       depthWrite: false,
-      blending: THREE.AdditiveBlending,
+      blending: THREE.NormalBlending, // an ink stroke, not a light streak
     });
     const mesh = new THREE.Mesh(meteorGeometry, material);
     mesh.visible = false;
@@ -451,10 +474,9 @@ export function createZodiacScene(
   const linkGeometry = new THREE.BufferGeometry();
   linkGeometry.setAttribute('position', new THREE.BufferAttribute(linkPositions, 3));
   const linkMaterial = new THREE.LineBasicMaterial({
-    color: 0x9d8cff,
+    color: 0x5a4326, // inked link lines on the chart
     transparent: true,
-    opacity: 0.3,
-    blending: THREE.AdditiveBlending,
+    opacity: 0.35,
     depthWrite: false,
   });
   const links = new THREE.LineSegments(linkGeometry, linkMaterial);
@@ -561,6 +583,7 @@ export function createZodiacScene(
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
+    bgMaterial.uniforms.uAspect.value = w / h;
     renderOnce = true;
   }
   const resizeObserver = new ResizeObserver(resize);
@@ -712,6 +735,7 @@ export function createZodiacScene(
         sprite.scale.setScalar(next);
       }
       starMaterial.uniforms.uTime.value = simTime;
+      bgMaterial.uniforms.uTime.value = simTime;
       for (const mesh of planetMeshes) {
         (mesh.material as THREE.ShaderMaterial).uniforms.uTime.value = simTime;
       }
@@ -790,6 +814,7 @@ export function createZodiacScene(
     setEffectsIntensity(value) {
       settings.effectsIntensity = value;
       starMaterial.uniforms.uEffects.value = value;
+      bgMaterial.uniforms.uEffects.value = value;
       for (const mesh of planetMeshes) {
         (mesh.material as THREE.ShaderMaterial).uniforms.uEffects.value = value;
       }
@@ -865,6 +890,8 @@ export function createZodiacScene(
       });
       orbitMaterials.forEach((material) => material.dispose());
       ringMaterial.dispose();
+      bgQuad.geometry.dispose();
+      bgMaterial.dispose();
       starGeometry.dispose();
       starMaterial.dispose();
       renderer.dispose();

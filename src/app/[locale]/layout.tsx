@@ -1,11 +1,21 @@
 import type { Metadata } from 'next';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { Forum } from 'next/font/google';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { defaultLocale } from '@/lib/i18n/locales';
 import { SiteHeader } from '@/components/site/SiteHeader';
 import { SiteFooter } from '@/components/site/SiteFooter';
 import '../globals.css';
+
+// Forum (Google Fonts, OFL) — antique Roman capitals with Cyrillic support;
+// the site-wide medieval face. Self-hosted by next/font at build time.
+const forum = Forum({
+  subsets: ['latin', 'cyrillic'],
+  weight: '400',
+  display: 'swap',
+  variable: '--font-forum',
+});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -38,7 +48,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={forum.variable}>
       <body>
         <NextIntlClientProvider>
           <SiteHeader />
